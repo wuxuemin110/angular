@@ -1,0 +1,210 @@
+* {
+	font-family: '微软雅黑';
+}
+
+.personalNav {
+	border-right: solid 1px #F5F5F5;
+	width: 180px;
+	float: left;
+}
+
+.userInfo {
+	width: 100%;
+	padding-top: 0px;
+}
+
+.userHead {
+	width: 120px;
+	height: 120px;
+	margin: 0px auto;
+	border-radius: 100%;
+}
+
+.userHead img {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	margin: 0px auto;
+	border-radius: 100%;
+}
+
+.userName {
+	text-align: center;
+	color: #fe4c58;
+	font-size: 16px;
+	padding: 15px 0;
+}
+
+.userRz {
+	width: 200px;
+	padding: 0px 25px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.userRz ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.userRz li {
+	margin: 0px 5px;
+	float: left;
+	border-radius: 100%;
+	height: 40px;
+	width: 40px;
+}
+
+.userRz .rzPhone {
+	background: url(../images/user/rzPhone.png) no-repeat center center #ccc;
+	height: 40px;
+	width: 40px;
+}
+
+.userRz .rzBank {
+	background: url(../images/user/rzBank.png) no-repeat center center #ccc;
+	height: 40px;
+	width: 40px;
+}
+
+.userRz .realName {
+	background: url(../images/user/realName.png) no-repeat center center #ccc;
+	height: 40px;
+	width: 40px;
+}
+
+.userRz .rzPhoneCurrent {
+	background-color: #4CC5FE;
+}
+
+.userRz .rzBankCurrent {
+	background-color: #FF6FFA;
+}
+
+.userRz .realNameCurrent {
+	background-color: #FEC54C;
+}
+.user-progress {
+	width: 168px;
+	margin: 0px auto;
+	margin-top: 15px;
+}
+
+.user-progress-bg {
+	display: inline-block;
+	width: 168px;
+	height: 7px;
+	line-height: 7px;
+	text-align: left;
+	vertical-align: middle;
+	border-radius: 7px;
+	background-color: #E2E2E2;
+}
+
+.user-progress-now {
+	height: 7px;
+	border-radius: 7px;
+	background-color: #DF0909;
+	position: relative;
+}
+
+.user-progress-data {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #df0909;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 15px;
+}
+.personalUl{
+	padding: 0px;
+	margin: 0px;
+}
+.personalUl li{
+	height: 50px;
+	line-height: 50px;
+	color: #333;
+	font-size: 16px;
+	cursor: pointer;
+	border-bottom: 1px solid #F5F5F5;
+	
+}
+
+.personalUl li a{
+	height: 50px;
+	line-height: 50px;
+	color: #999;
+	display: inline-block;
+	width: 100%;
+}
+
+.accountCenter{
+	/*background: url(../images/user/accountCenter.png) no-repeat 35px center #FAFAFA;*/
+	font-weight: bold;
+	padding-left: 20px;
+}
+.investmentIcon{
+	/*background: url(../images/user/investmentIcon.png) no-repeat 35px center #FAFAFA;*/
+	font-weight: bold;
+	padding-left: 20px;
+}
+.rewardIcon{
+/*	background: url(../images/user/rewardIcon.png) no-repeat 35px center #FAFAFA;*/
+font-weight: bold;
+	padding-left: 20px;
+}
+
+.capitalIcon{
+	/*background: url(../images/user/capitalIcon.png) no-repeat 35px center #FAFAFA;*/
+	font-weight: bold;
+	padding-left: 20px;
+}
+
+.safeIcon{
+	/*background: url(../images/user/safeIcon.png) no-repeat 35px center #FAFAFA;*/
+	font-weight: bold;
+	padding-left: 20px;
+}
+
+.personalUl .personaLi{
+	background: #fff;
+	/*border-left: 4px solid transparent;*/
+}
+
+.personalUl .personaLi a{
+	cursor: pointer;
+	color: #333;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	padding-left: 55px;
+	/*border-left: 4px solid transparent;*/
+}
+
+.personalUl .personaLi:hover{
+	/*color: #df0909;*/
+/*	border-left: 4px solid #df0909;*/
+}
+
+.personalUl .personaLi a:hover{
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	background: #ff8605;
+	
+}
+
+.personalUl .personaCurrent{
+	color: #fff;
+	
+}
+
+.personalUl .personaCurrent a{
+	color: #fff;
+	background: #ff8605;
+	height: 50px;
+	line-height: 50px;
+	
+}

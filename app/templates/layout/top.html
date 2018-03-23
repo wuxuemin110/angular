@@ -1,0 +1,89 @@
+<div class="top-wrap" style="position: relative;min-width: 1200px;">
+		<div style="position: relative; height: 40px;">
+    <div style="width: 100%;position: fixed;  background:#F5F5F5 ;z-index: 33;top: 0px">
+        <div class="w-1200">
+            <div class="top w-1200" style="">
+                <div class="fl">
+                    <span class="tel">客服热线：400-087-8879</span>
+                    
+                </div>
+                <div class="fr" style="float: right" ng-controller="LayoutController">
+                	 <a href="{{url.login}}">{{userName1}}</a>
+                    <span>|</span>
+                    <a style="cursor: pointer" ng-if="log != '退出登录'" href="{{url.register}}" >{{log}}</a>
+                    <a style="cursor: pointer" ng-if="log == '退出登录'" ng-click="showConfirm()">{{log}}</a>
+                    <span>|</span>
+                    <a href="/help">帮助中心</a>
+                    <span>|</span>
+                    <a href="#" onclick="showPromptBg()"><img  src="resource/images/index/appIcon.png" style="vertical-align: middle;padding-right: 10px;">APP 下载</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="nav-wrap">
+        <div class="nav w-1200" style="position: relative;">
+            <div class="logo-img"><a href="/index"><img src="resource/images/logo.jpg" ></a></div>
+            <!--<div class="logoWord">
+            	<img src="resource/images/index/logoWord1.png" >
+            	<img src="resource/images/index/logoWord2.png" >
+            	<img src="resource/images/index/logoWord3.png" >
+            	<img src="resource/images/index/logoWord4.png" >
+            	<img src="resource/images/index/logoWord5.png" >
+            	<img src="resource/images/index/logoWord6.png" >
+            	<img src="resource/images/index/logoWord7.png" >
+            	<img src="resource/images/index/logoWord8.png" >
+            	<img src="resource/images/index/logoWord9.png" >
+            	<img src="resource/images/index/logoWord10.png" >
+            </div>-->
+            <div class="nav-list" ng-controller="LayoutController">
+                <a href="/" id="one" ng-class="{'currentLi':currentLi==1}">首页</a>
+                <a href="/investment" ng-class="{'currentLi':currentLi==2}">理财列表</a>
+                <a href="/safeEnsure" ng-class="{'currentLi':currentLi==3}">安全保障</a>
+                <a href="/about" ng-class="{'currentLi':currentLi==4}">信息披露</a>
+                 <a href="{{url.login}}" ng-class="{'currentLi':currentLi==5}">账户中心</a>
+               <!-- <a href="/user/index" ng-class="{'currentLi':currentLi==5}">账户中心</a>-->
+                <!--<a href="/quickloan">急速借款</a>-->
+               <!-- <a href="/noviceExpress" ng-class="{'currentLi':currentLi==5}">新手指南</a>-->
+               <!-- <a href="/about">关于我们</a>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="appPromptBg" id="appPromptBg">
+	<div class="appPrompt bounceInDown animated">
+		<div class="appImg">
+		<img src="resource/images/index/appImg.png">
+	    </div>
+	    <div class="appClose">
+	    	<img src="resource/images/index/appClose.png">
+	    </div>
+	    <div class="appBtn">
+	    	<img src="resource/images/index/appBtn.png">
+	    </div>
+	</div>
+	
+</div>
+<script>
+	$(function() {	
+$(".appClose").click(function(){
+    	$(".appPromptBg").hide();
+    });
+     $(".appBtn").click(function(){
+    	$(".appPromptBg").hide();
+    });
+     $(".appDown").click(function(){
+    	$(".appPromptBg").show();
+    });
+     
+    });
+   
+   function showPromptBg()    
+        {    
+        document.getElementById("appPromptBg").style.display ="block";
+          
+        }  
+     
+     
+</script>

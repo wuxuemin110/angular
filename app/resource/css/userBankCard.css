@@ -1,0 +1,376 @@
+.fLeft{
+	float: left;
+}
+.fRight{
+	float: right;
+}
+.userBankBg{
+	width: 1020px;
+	margin-bottom: 30px;
+	float: right;
+}
+
+.userBankTitle{
+	padding: 0px;
+    margin: 0px;
+    background: #f5f5f5;
+    overflow: hidden;
+	
+}
+.userBankTitle h3{
+	width: 200px;
+    font-size: 16px;
+   border-bottom: 1px solid #ff8605;
+    background: #ff8605;
+    color: #fff;
+    height: 49px;
+    line-height: 49px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+	
+}
+
+.userBankCon{
+	
+	padding: 0px 0px;
+	margin: 0px;
+}
+.userBank{
+	min-height: 470px;
+	width: 100%;
+	
+}
+.bankBtn{
+	background: url(../images/user/addBank.jpg) no-repeat 0px 0px;
+	width: 402px;
+	height: 224px;
+	margin: 50px 0 0px 70px ;
+cursor: pointer;
+}
+
+.bankBorder{
+	width: 402px;
+	height: 224px;
+	margin: 50px 0 0px 70px ;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	padding: 25px 0 0 30px;
+	font-size: 14px;
+}
+.bankName{
+	color: #333;
+	font-size: 14px;
+	height: 50px;
+}
+
+.bankName img{
+	height: 50px;
+	width: 150px;
+	vertical-align: middle;
+	padding-right: 2px;
+}
+.cardNumber,.cardholder{
+	color: #666;
+	line-height: 35px;
+}
+.cardNumber span,.cardholder span{
+	color: #333;
+	padding-left: 12px;
+}
+
+.userBankRule{
+	border-top: 2px solid #F5F5F5;
+	padding: 40px 70px 0 70px;
+	color: #333;
+}
+
+.userBankRule h2{
+	font-size:18px;
+	margin: 0px;
+	padding: 0px;
+}
+.userBankRule p{
+	font-size:14px;
+	line-height: 35px;
+	padding-top: 20px;
+}
+
+
+
+.topUl{
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+.topUl li{
+	width: 400px;
+	font-size: 16px;
+	border-bottom: 2px solid #EDEDED;
+	float: left;
+	height: 48px;
+	line-height: 48px;
+	color: #333;
+	text-align: center;
+	cursor: pointer;
+}
+
+.topUl li a{
+	display: inline-block;
+	height: 48px;
+	width: 100%;
+	color: #333;
+}
+.topUl .currentLi{
+	border-bottom: 2px solid #ff0000;
+	color: #ff0000;
+}
+
+.topUl .currentLi a{
+	
+	color: #ff0000;
+}
+
+.redEmpty{
+	background: url(../images/user/redEmpty.png) no-repeat 0px 0px;
+	width: 170px;
+	height: 185px;
+	margin: 0px auto;
+	margin-top: 95px;
+}
+.redEmpty1{
+	background: url(../images/user/redEmpty1.png) no-repeat 0px 0px;
+	width: 170px;
+	height: 185px;
+	margin: 0px auto;
+	margin-top: 95px;
+}
+.redList,.grayList{
+	width: 100%;
+	overflow: hidden;
+}
+
+.redList ul,.grayList ul{
+	padding: 0px;
+	margin: 0px;
+}
+
+.redList ul li{
+	padding: 30px 0px 0px;
+	margin: 20px 16px 0px 16px;
+	position: relative;
+	width: 368px;
+	height: 173px;
+	float: left;
+	background: url(../images/user/redBg.png) no-repeat 0px 0px;
+}
+
+.grayList ul li{
+	padding: 30px 0px 0px;
+	margin: 20px 16px 0px 16px;
+	position: relative;
+	width: 368px;
+	height: 173px;
+	float: left;
+	background: url(../images/user/grayBg.png) no-repeat 0px 0px;
+}
+.redList .money{
+	float: left;
+	width: 170px;
+	padding-left: 13px;
+	overflow: hidden;
+	height: 100px;
+	font-size: 50px;
+	line-height: 100px;
+	color: #df0909;
+}
+
+.grayList .money{
+	float: left;
+	width: 170px;
+	padding-left: 13px;
+	overflow: hidden;
+	height: 100px;
+	font-size: 50px;
+	line-height: 100px;
+	color: #dfdfdf;
+}
+.redList .money span,.grayList .money span{
+	font-size: 22px;
+}
+
+.redList .describe,.grayList .describe{
+	float: right;
+	width: 190px;
+}
+
+.redList .describe h2,.grayList .describe h2{
+	margin: 0px;
+	padding: 0px;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 8px 0px;
+}
+
+.redList .describe p,.grayList .describe p{
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	color: #999;
+}
+
+.redListBottom{
+	position: absolute;
+	bottom: 0px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0px 25px 0px 15px;
+	color: #999;
+	font-size: 14px;
+	width: 100%;
+}
+.redListBottom span{
+	float: right;
+	display: inline-block;
+}
+
+
+/*推荐有礼*/
+.recommend{
+	width: 100%;
+	overflow: hidden;
+	margin: 65px 0px 50px 0px;
+}
+
+.referralLink{
+	
+	border-right: 1px solid #EBEBEB;
+	width: 398px;
+	height: 120px;
+}
+
+.referralLink h4{
+	margin: 0px ;
+	padding: 0px;
+	font-size: 16px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.referralLink p{
+	margin: 0px ;
+	padding: 0px;
+	font-size: 14px;
+	height: 30px;
+	color: #999;
+	line-height: 30px;
+}
+.referralLink input{
+	width: 228px;
+	border: 1px solid #EBEBEB;
+	height: 38px;
+	padding-left: 15px;
+}
+
+.referralLink span{
+	display: inline-block;
+	width: 108px;
+	text-align: center;
+	line-height: 40px;
+	height: 40px;
+	background: #ff0000;
+	border-radius: 5px;
+	color: #fff;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.spreadRecord,.rewardRecord{
+	width: 100%;
+	margin-top: 45px;
+}
+
+.spreadRecord table,.rewardRecord table{
+	width: 100%;
+}
+
+.spreadRecord th,.rewardRecord th{
+	font-size: 14px;
+	font-weight: normal;
+	color: #999;
+	background: #f5f5f5;
+	border-bottom: 1px solid #d2d2d2;
+	border-top: 1px solid #d2d2d2;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.spreadRecord td,.rewardRecord td{
+	font-size: 14px;
+	font-weight: normal;
+	color: #999;
+	border-bottom: 1px solid #EBEBEB;
+	line-height: 45px;
+	text-align: center;
+}
+/*保存银行卡*/
+.submitBank{
+	width: 100%;
+}
+.submitBank ul{
+	padding: 0;
+	margin: 0;
+}
+.formBank{
+	width: 430px;
+	margin: 0px auto;
+	margin-top: 85px;
+}
+
+.submitBank .input-group{
+	margin-bottom: 23px;
+	
+}
+.inputGroupAddon{
+	width: 90px;
+	text-align: right;
+	margin-right: 30px;
+	display: inline-block;
+	float: left;
+	height: 34px;
+	line-height: 34px;
+	color: #333;
+	font-size: 16px;
+}
+.noControl{
+	border: 0;
+	height: 34px;
+	line-height: 34px;
+	background: #fff;
+	color: #686868;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	width: 280px;
+}
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    padding: 0px;
+   font-size: 14px;
+    width: 280px;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+
+.submitBankBtn{
+	width: 230px;
+	height: 45px;
+	line-height: 45px;
+	background: #DF0707;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	margin: 15px auto 50px auto;
+	border-radius: 5px;
+}

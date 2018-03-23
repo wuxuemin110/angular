@@ -1,0 +1,581 @@
+body {
+	font-family: "Microsoft YaHei", "微软雅黑" !important;
+
+}
+
+li a {
+
+	cursor: pointer;
+
+}
+/*.bannerDiv{*/
+	/*width: 100%;*/
+	/*height: 400px;*/
+	/*background: url(../images/about/bybanner.png) no-repeat center center;*/
+/*}*/
+.banner{
+	width: 100%;
+	height: 500px;
+	background: url(../images/about/bybanner.jpg) no-repeat center center;
+	overflow: hidden;
+}
+/*.banner img{
+	width: 100%;
+	height: 400px;
+}*/
+.aboutContentBg{
+	width: 100%;
+	overflow: hidden;
+	background: url(../images/about/aboutBg.png) no-repeat #fff center 0px;
+}
+.aboutContent{
+	width: 1200px;
+	margin: 0px auto;
+	/*background: url(../images/about/aboutBg.jpg) no-repeat center 0px;*/
+}
+
+.platData,.aboutData{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 50px;
+}
+.platDataTop{
+	width: 100%;
+	height: 85px;
+	background: url(../images/about/platData.png) no-repeat 30px 0px;
+}
+.platDataCon{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 58px;
+}
+.platDataCon ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.platDataCon li{
+	width: 180px;
+	text-align: center;
+	margin: 0px 60px;
+	float: left;
+	margin-bottom: 30px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.platDataCon li p{
+	width: 180px;
+	text-align: center;
+	color: #666;
+	margin: 0px;
+}
+
+.platDataCon li i{
+	width: 180px;
+	text-align: center;
+	color: #df0707;
+	margin-top: 12px;
+	display: inline-block;
+}
+
+.imgs1{
+	background: url(../images/about/data1.png) no-repeat 0px 0px;
+}
+
+.imgs2{
+	background: url(../images/about/data2.png) no-repeat 0px 0px;
+}
+
+.imgs3{
+	background: url(../images/about/data3.png) no-repeat 0px 0px;
+}
+
+.imgs4{
+	background: url(../images/about/data4.png) no-repeat 0px 0px;
+}
+.imgs5{
+	background: url(../images/about/data5.png) no-repeat 0px 0px;
+}
+.imgs6{
+	background: url(../images/about/data6.png) no-repeat 0px 0px;
+}
+.imgs7{
+	background: url(../images/about/data7.png) no-repeat 0px 0px;
+}
+.imgs8{
+	background: url(../images/about/data8.png) no-repeat 0px 0px;
+}
+
+.imgData{
+	width: 91px;
+	height: 91px;
+	margin: 0px auto;
+	margin-bottom: 10px;
+	-webkit-transition: 0.6s;
+	-webkit-transition: -webkit-transform 0.6s ease-out;
+	transition: transform 0.6s ease-out;
+	-moz-transition: -moz-transform 0.6s ease-out;
+}
+
+.imgData:hover{
+	transform: rotateZ(360deg);
+	-webkit-transform: rotateZ(360deg);
+	-moz-transform: rotateZ(360deg);
+}
+.aboutDataBottom{
+	border-bottom:1px solid #ff8605;
+	margin-top:75px;
+}
+.aboutDataTop {
+	width: 100%;
+	height: 150px;
+	background: url(../images/about/aboutDataTop.png) no-repeat center center;
+}
+.aboutDataTop1 {
+	width: 100%;
+	height: 115px;
+	background: url(../images/about/aboutDataTop1.png) no-repeat center center;
+	margin-top:20px;
+}
+.aboutDataCon{
+	width: 100%;
+	overflow: hidden;
+
+}
+.aboutDataCon1{
+	width: 76%;
+	overflow: hidden;
+	margin:0 auto;
+	line-height:40px;
+	font-size:30px;
+
+
+}
+.nameStyle{
+	/*margin-left:280px;*/
+	font-size:24px;
+}
+.person{
+	width: 50%;
+	height: 345px;
+	background: url(../images/about/person.jpg) no-repeat 0 -15px;
+margin-top:60px;
+margin-left:-15px;}
+.person2{
+	width: 50%;
+	height: 345px;
+	background: url(../images/about/person2.jpg) no-repeat 0 -12px;
+	margin-top:5px
+}
+.person3{
+	width: 50%;
+	height: 345px;
+	background: url(../images/about/person3.png) no-repeat 0 -10px;
+	margin-top:5px
+}
+.personIntr{
+	width: 64%;
+	height: 345px;
+	margin-top:-354px;
+	margin-left:36%;
+
+}
+.teamAptitude1{
+	width: 100%;
+	height: 120px;
+	background: url(../images/about/teamAptitude1.png) no-repeat center center;
+	margin-top:20px;
+}
+.teamAptitude3{
+	width: 100%;
+	height: 460px;
+	background: url(../images/about/yingye.png) no-repeat center center;
+	margin-top:40px;
+	/*margin-bottom:60px;*/
+}
+.teamAptitude2{
+	width: 100%;
+	height: 875px;
+	background: url(../images/about/yyzz.jpg) no-repeat center center;
+/*margin-top:40px;*/
+	margin-bottom:40px;
+}
+.yzbg1{
+	width: 100%;
+	height: 875px;
+	background: url(../images/about/yzbg1.png) no-repeat center center;
+	/*margin-top:40px;*/
+	margin-bottom:40px;
+}
+.yzbg2{
+	width: 100%;
+	height: 875px;
+	background: url(../images/about/yzbg2.png) no-repeat center center;
+	/*margin-top:40px;*/
+	margin-bottom:60px;
+}
+.aboutDataCon ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.aboutDataCon li{
+	width: 320px;
+	margin: 0px 40px;
+	float: left;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.aboutDataCon li p{
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	color: #323333;
+	margin: 0px;
+}
+
+.aboutDataCon li i{
+	width: 100%;
+	font-size: 14px;
+	color: #666;
+	margin-top: 12px;
+	display: inline-block;
+	line-height: 20px;
+}
+.aboutimg{
+	-webkit-transition: 0.6s;
+	-webkit-transition: -webkit-transform 0.6s ease-out;
+	transition: transform 0.6s ease-out;
+	-moz-transition: -moz-transform 0.6s ease-out;
+}
+.aboutimg:hover{
+	transform: rotateZ(360deg);
+	-webkit-transform: rotateZ(360deg);
+	-moz-transform: rotateZ(360deg);
+}
+.aboutimg1{
+	background: url(../images/about/aboutimg1.png) no-repeat 0px 0px;
+	width: 51px;
+	height: 55px;
+	margin: 0px auto;
+	margin-bottom: 25px;
+
+}
+
+.aboutimg2{
+	background: url(../images/about/aboutimg2.png) no-repeat 0px 0px;
+	width: 52px;
+	height: 54px;
+	margin: 0px auto;
+	margin-bottom: 26px;
+
+}
+
+.aboutimg3{
+	background: url(../images/about/aboutimg3.png) no-repeat 0px 0px;
+	width: 68px;
+	height: 38px;
+	margin: 16px auto 26px auto;
+}
+
+.advantage{
+	background: url(../images/about/advantage.jpg) no-repeat 0px 0px;
+	width: 100%;
+	height: 401px;
+	/*margin: 16px auto 26px auto;	*/
+	margin-bottom: 25px;
+}
+
+
+.helpBg{
+	width: 100%;
+	overflow: hidden;
+}
+.helpBanner{
+	width: 100%;
+	height: 400px;
+	background: url(../images/help/banner.jpg) no-repeat center center;
+}
+
+.helpSelf{
+	width: 1200px;
+	margin: 0px auto;
+	margin-top: 85px;
+}
+
+.helpSelf h2{
+	font-size: 30px;
+	font-weight: 100;
+	color: #666;
+	text-align:center;
+}
+.helpSelf1{
+	font-size: 18px;
+	font-weight: 100;
+	color: #999;
+	text-align:center;
+}
+.helpSelf11{
+	font-size: 18px;
+	font-weight: 100;
+	color: #999;
+	text-align:center;
+}
+.helpSelf span {
+	display:block;
+	font-size: 16px;
+	color: #999;
+
+}
+
+.helpSelf ul{
+	margin: 0px;
+	padding: 50px 19px 40px 19px;
+	overflow: hidden;
+	/*border: 1px solid #e8e8e8;*/
+	/*background: #fff;*/
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	margin-bottom: 30px;
+	margin-left:16%;
+}
+
+
+.helpSelf ul li {
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: #666;
+	cursor: pointer;
+	margin: 0 30px;
+}
+
+.helpSelf ul li span {
+	height: 132px;
+	width: 132px;
+}
+.helpSelf ul li a {
+	color: #666;
+}
+.helpSelf ul li span:hover{
+
+}
+
+
+.helpSelf ul li .one {
+	background: url(../images/help/one.png) no-repeat center center;
+}
+
+.helpSelf ul li .one:hover {
+	background: url(../images/help/oneRed.png) no-repeat center center;
+}
+
+.helpSelf ul li .two {
+	background: url(../images/help/two.png) no-repeat center center;
+}
+
+.helpSelf ul li .two:hover {
+	background: url(../images/help/twoRed.png) no-repeat center center;
+}
+
+
+.helpSelf ul li .three {
+	background: url(../images/help/three.png) no-repeat center center;
+}
+
+.helpSelf ul li .three:hover{
+	background: url(../images/help/threeRed.png) no-repeat center center;
+}
+
+
+.helpSelf ul li .four {
+	background: url(../images/help/four.png) no-repeat center center;
+}
+
+.helpSelf ul li .four:hover {
+	background: url(../images/help/fourRed.png) no-repeat center center;
+}
+
+.regularService{
+	margin: 20px auto;
+	width: 1200px;
+	margin-top: 40px;
+}
+.regularService span {
+	display: block;
+	font-size: 16px;
+	color: #999;
+	margin: 4px 0 5px 0;
+}
+.regularService h2{
+	font-size: 30px;
+	font-weight: 100;
+	color: #666;
+	text-align:center;
+}
+
+.regularServiceData{
+	border: 1px solid #DAD9D9;
+	height: 602px;
+	width: 1100px;
+	margin: 60px auto;
+	background: #fff;
+	margin-bottom:100px;
+	/*margin-top:60px;*/
+}
+
+.regularServiceData .topUl{
+	margin: 0px;
+	padding: 0px;
+	width: 70px;
+	float: left;
+	overflow: hidden;
+}
+
+.regularServiceData  .topUl li{
+	margin: 0px;
+	/*padding: 0px;*/
+	width: 70px;
+	/*line-height: 58px;*/
+	height: 200px;
+	background: #F5F5F5;
+	text-align: center;
+	/*float: left;*/
+	cursor: pointer;
+	font-size: 18px;
+	/*color: #8d8b8b;*/
+	color:#666;
+	outline: none;
+	padding-top:235px;
+
+}
+
+.regularServiceData .topUl .activeLi{
+	color: #fff;
+	background: #fe4c58;
+	width:70px;
+	height:600px;
+}
+
+.regularServiceData div{
+	
+}
+.rightProblem{
+	float: right;
+	width: 1028px;
+}
+.leftProblem{
+	width: 242px;
+	float: left;
+}
+
+.leftProblem li{
+
+	font-size: 16px;
+	color: #666;
+	cursor: pointer;
+	line-height: 60px;
+	outline: none;
+	height: 60px;
+	text-align:center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	/*margin-top:-20px;*/
+
+}
+
+.leftProblem li i {
+	display:inline-block;
+	float: left;
+	width: 7px;
+	height: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+	background: #c8c8c8;
+	margin: 9px 10px 0 0;
+}
+
+.leftProblem .leftProblemLi{
+
+	/*color: #df0707;*/
+	width:242px;
+	height:60px;
+	/*margin-left:53px;*/
+	background:#fe4c58;
+	line-height:60px;
+	margin-top:0px;
+	text-align:center;
+	color:#fff;
+}
+
+.leftProblem .leftProblemLi i{
+
+	background: #df0707;
+}
+
+
+.rightAnswerBg{
+	/*margin-top: -285px;*/
+	width: 730px;
+	float:right;
+}
+
+.rightAnswer{
+	width: 730px;
+	/*background: #FFF3F3;*/
+	border-radius: 2px;
+	height: 600px;
+	font-size: 15px;
+	line-height: 30px;
+	/*color: #615f5f;*/
+	padding: 40px 80px 20px 0px;
+	overflow-y:auto;
+	/*z-index:111;*/
+
+	/*margin-left:-60px;*/
+
+}
+
+.aboutBanner{
+	background: #FFF;
+
+}
+.aboutBanner div{
+	width: 1200px;
+	margin: 0px auto;
+	height: 615px;
+}
+
+.aboutBanner img{
+	width: 1200px;
+	height: 615px;
+	display: inline-block;
+}
+
+.aboutBottom{
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.aboutBottomLeft{
+	float: left;
+	width: 50%;
+	height: 418px;
+	background: url(../images/about/aboutBottomLeft.jpg) no-repeat center center;
+}
+
+.aboutLeft{
+	float: right;
+	width: 600px;
+}
+
+.aboutBottomRight{
+	float: right;
+	width: 50%;
+}

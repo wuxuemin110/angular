@@ -1,0 +1,107 @@
+<!--头部-->
+<div ng-cloak>
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<link rel="stylesheet" href="resource/css/about.css" type="text/css">
+	<style type="text/css">
+		body {
+			font-family: "Microsoft YaHei", "微软雅黑" !important;
+			font-size: 14px !important;
+		}
+
+	</style>
+	<div class="helpBg">
+		<div class="helpBanner">
+
+		</div>
+		<div class="helpSelf">
+			<h2>
+				自助服务
+			</h2>
+			<p class="helpSelf1">快捷服务 帮你快速解决问题。</p>
+			<ul>
+				<li>
+					<a href="/user/userSafeCenter">
+						<span class="one"></span>
+						<!--<i>修改登陆密码</i>-->
+					</a>
+
+				</li>
+				<li>
+					<a href="/user/userSafeCenter">
+						<span class="two"></span>
+						<!--<i>修改交易密码</i>-->
+					</a>
+				</li>
+				<li>
+					<a href="/user/userBankCard">
+						<span class="three"></span>
+						<!--<i>绑定银行卡</i>-->
+					</a>
+				</li>
+				<li>
+					<a href="/user/userInvite">
+						<span class="four"></span>
+						<!--<i>查询推广记录</i>-->
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="regularService">
+			<h2>常规服务</h2>
+			<p class="helpSelf1 helpSelf11">为您答疑 让理财更放心。</p>
+			<div class="regularServiceData">
+				<ul class="topUl">
+					<li ng-class="{'activeLi':liIndex==1}" ng-click="liIndex=1">常<br/>见<br/>问<br/>题</li>
+
+					<!--<li ng-class="{'activeLi':liIndex==2}" ng-click="liIndex=2">产<br/>品<br/>介<br/>绍</li>-->
+
+					<!--<li ng-class="{'activeLi':liIndex==3}" ng-click="liIndex=3">名<br/>词<br/>解<br/>释</li>-->
+				</ul>
+
+				<div ng-show="liIndex==1" class="rightProblem">
+					<div class="leftProblem">
+						<ul>
+							<li ng-class="{'leftProblemLi':leftProblem1=={{x.number}}}" ng-click="leftProblem1Fun(x)" ng-repeat="x in itemList">{{x.title}}</li>
+							<!--<li ng-class="{'leftProblemLi':leftProblem1==1}" ng-click="leftProblem1=1"><i></i>关于注册和登陆</li>
+                            <li ng-class="{'leftProblemLi':leftProblem1==2}" ng-click="leftProblem1=2"><i></i>关于存管银行开户</li>
+                             <li ng-class="{'leftProblemLi':leftProblem1==3}" ng-click="leftProblem1=3"><i></i>关于充值和提现</li>
+                              <li ng-class="{'leftProblemLi':leftProblem1==4}" ng-click="leftProblem1=4"><i></i>关于红包</li>
+                               <li ng-class="{'leftProblemLi':leftProblem1==5}" ng-click="leftProblem1=5"><i></i>关于投资</li>
+                               <li ng-class="{'leftProblemLi':leftProblem1==6}" ng-click="leftProblem1=6"><i></i>关于回款</li>-->
+						</ul>
+					</div>
+					<div class="rightAnswerBg">
+						<div class="rightAnswer" ng-bind-html="x.content | DHtml" ng-show="leftProblem1=={{x.number}}" ng-repeat="x in itemList">{{x.content}}
+                        </div>
+					</div>
+				</div>
+				<!--<div ng-show="liIndex==2" class="rightProblem">-->
+					<!--<div class="leftProblem">-->
+						<!--<ul>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem2==1}" ng-click="leftProblem1=2">什么是泊洋？</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+
+				<!--<div ng-show="liIndex==3" class="rightProblem">-->
+					<!--<div class="leftProblem">-->
+						<!--<ul>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==1}" ng-click="leftProblem3=1">&nbsp;红&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;包</li>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==2}" ng-click="leftProblem3=2">投标奖励</li>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==3}" ng-click="leftProblem3=3">累计收益</li>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==4}" ng-click="leftProblem3=4">累计投资</li>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==5}" ng-click="leftProblem3=5">可用余额</li>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==6}" ng-click="leftProblem3=6">账户总额</li>-->
+							<!--<li ng-class="{'leftProblemLi':leftProblem3==7}" ng-click="leftProblem3=7">预期年化</li>-->
+
+						<!--</ul>-->
+
+			</div>
+		</div>
+	</div>
+
+
+	<!--尾部-->
+	<div><div ng-include="'templates/layout/bottom.html'"></div></div>
+	<!--尾部结束-->
+</div>

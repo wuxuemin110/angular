@@ -1,0 +1,174 @@
+<!--头部-->
+
+<div ng-include="'templates/layout/top.html'"></div>
+
+<!--头部结束-->
+<link rel="stylesheet" href="resource/css/page.css" type="text/css">
+<style type="text/css">
+	body {
+		font-family: "Microsoft YaHei", "微软雅黑" !important;
+		background-color: #FFFFFF;
+	}
+	
+	.platformMessage {
+		width: 1200px;
+		margin: 0px auto;
+		overflow: hidden;
+	}
+	.content{
+		background: #fff;
+		overflow: hidden;
+		padding-top: 55px;
+	}
+	.newUl{
+		margin: 0px;
+		min-height: 700px;
+	}
+	
+	.newUl li{
+		margin: 0px 50px;
+		height: 55px;
+		line-height: 55px;
+		color: #333;
+		font-size: 18px;
+		padding: 0px 10px;
+		border-bottom: 1px solid #F0F0F0;
+	}
+	/*.newUl li:nth-child(odd){
+		background: #FAFAFA;
+	}*/
+	.newUl li span{
+		float: right;
+	}
+	.newUl li label{
+		max-width: 945px;
+	    display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+       text-overflow: ellipsis;
+       font-weight: normal;
+       cursor: pointer;
+	}
+	.newUl li a{
+		display: inline-block;
+		height: 55px;
+		line-height: 55px;
+		width: 100%;
+	}
+	.newUl li a:hover{
+		color: #ff0000;
+		
+	}
+	
+	
+</style>
+
+<div class="platformMessage" ng-cloak>
+	<div class="tzlcTop">
+		<ul>
+			<li ng-class="{'activeLi':liIndex==1}">
+				<a href="#" ng-click="[liIndex=1,selectPage(1)]">平台公告</a>
+			</li>
+			<li ng-class="{'activeLi':liIndex==2}">
+				<a href="#" ng-click="[liIndex=2,selectPage1(1)]">媒体资讯</a>
+			</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div ng-show="liIndex==1" class="">
+			<ul class="newUl">
+				<li ng-repeat="x in itemList">
+					<a href="/notices/{{x.id}}" ><span>{{x.updatedTime|newDate:'yyyy-MM-dd'}}</span><label>{{x.title}}</label></a>
+				</li>
+			</ul>
+			<center>
+
+				<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+								<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot">
+								<a ng-click="selectPage(nowPage+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+
+			</center>
+		</div>
+        <div ng-show="liIndex==2" class="">
+			<ul class="newUl">
+				<li ng-repeat="x in itemList1">
+					<a href="/news/{{x.id}}" ><span>{{x.updatedTime|newDate:'yyyy-MM-dd'}}</span><label>{{x.title}}</label></a>
+				</li>
+			</ul>
+			<center>
+
+				<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage1(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage1(nowPage1-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages1" ng-class="{true:'active'}[page.showNumber==nowPage1]">
+
+								<a ng-click="selectPage1(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot1">
+								<a ng-click="selectPage1(nowPage1+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage1(nowPage1+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage1(totalPages1)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+
+			</center>
+		</div>
+	</div>
+</div>
+
+<br/>
+
+<!--尾部-->
+
+<div ng-include="'templates/layout/bottom.html'"></div>
+
+<!--尾部结束-->
+<!--footer end-->

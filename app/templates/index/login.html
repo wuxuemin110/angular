@@ -1,0 +1,229 @@
+<!--头部-->
+<div ng-include="'templates/layout/top.html'"></div>
+<!--头部结束-->
+<!--样式-->
+<style>
+	body {
+		font-family: "Microsoft YaHei", "微软雅黑", helvetica, arial, verdana, tahoma, sans-serif !important;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	a:link {
+		text-decoration: none;
+	}
+	
+	a:hover {
+		text-decoration: none;
+	}
+	
+	a:active {
+		text-decoration: none;
+	}
+	
+	a:visited {
+		text-decoration: none;
+	}
+	
+	input {
+		outline: none;
+	}
+	
+	.forgetPassword {
+		width: 321px;
+		height: 20px;
+		color: #fff;
+		line-height: 20px;
+		vertical-align: middle;
+		margin: 0px auto 10px auto;
+		text-align: center;
+	}
+	
+	.forgetPassword a {
+		position: relative;
+		display: inline-block;
+		color: #fff;
+		padding: 0 10px;
+		font-size: 16px;
+		height: 20px;
+		line-height: 20px;
+	}
+	
+	.verify-img>img {
+		cursor: pointer;
+		margin-top: 8px;
+		width: 80px;
+		height: 28px;
+	}
+	
+	.loginwarp {
+		width: 100%;
+		background: url("resource/images/login/loginBg.jpg") no-repeat center center;
+		height: 800px;
+	}
+	
+	.loginBg {
+		width: 1200px;
+		margin: 0px auto;
+	}
+	
+	.login {
+		margin-top: 150px;
+		width: 401px;
+		height: 472px;
+		background: url("resource/images/login/login.png") no-repeat;
+		float: right;
+	}
+	
+	.login h2 {
+		font-size: 26px;
+		margin-top: 50px;
+		margin-bottom: 30px;
+		color: #fff;
+		text-align: center;
+	}
+	
+	.inputGroup {
+		width: 321px;
+		margin: 0px auto;
+		margin-bottom: 20px;
+	}
+	
+	.inputName input,
+	.inputPassword input {
+		height: 48px;
+		border: 0px;
+		width: 100%;
+		font-size: 16px;
+		color: #999;
+		background:transparent;
+		line-height: 48px;
+	}
+	
+	.inputName {
+		width: 321px;
+		height: 48px;
+		background: url("resource/images/login/inputName.png") no-repeat;
+		padding-left: 58px;
+	}
+	
+	.inputPassword {
+		width: 321px;
+		height: 48px;
+		background: url("resource/images/login/inputPassword.png") no-repeat;
+		padding-left: 58px;
+	}
+	
+	.verifyCode {
+		position: relative;
+	}
+	
+	.verifyCode input {
+		border-radius: 5px;
+		width: 190px;
+		height: 48px;
+		border: 0px;
+		font-size: 16px;
+		color: #999;
+		padding-left: 10px;
+	}
+	
+	.verifyImg {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 110px;
+		height: 48px;
+		background: #fff;
+	}
+	
+	.verifyImg img {
+		width: 110px;
+		height: 48px;
+		display: inline-block;
+	}
+	
+	.loginBtn {
+		width: 321px;
+		text-align: center;
+		margin: 0px auto;
+		padding-top: 24px;
+		padding-bottom: 15px;
+	}
+	
+	.loginBtn a {
+		background: #2c71bc;
+		border-radius: 5px;
+		width: 321px;
+		height: 48px;
+		line-height: 48px;
+		text-align: center;
+		font-size: 20px;
+		color: #fff;
+		display: inline-block;
+	}
+	
+	input:-webkit-autofill,
+	textarea:-webkit-autofill,
+	select:-webkit-autofill {
+		-webkit-text-fill-color: #999 !important;
+		-webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+		background-color: transparent;
+		background-image: none;
+		transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间  
+	}
+</style>
+<div class="loginwarp">
+	<div class="loginBg">
+		<div class="login">
+			<h2>欢迎登陆</h2>
+			<div style="display: block;" class="login-inner-tab">
+				<div class="inputGroup">
+				
+					<div class="inputName">
+						<input type="text" style="display: none;" autocomplete="off" name="phone" />
+						<input type="text" name="phone" required="" placeholder="请输入登录手机号码" ng-model="user.name" autocomplete="new-password">
+					</div>
+				</div>
+				<div class="inputGroup" style="display: none;">	
+					<div class="inputName">
+						<input type="text" style="display: none;" autocomplete="off" name="phone" />
+						<input type="text" name="phone" required="" placeholder="请输入登录手机号码"  autocomplete="new-password">
+					</div>
+				</div>
+				<div class="inputGroup">
+					<div class="inputPassword" data-rel="l_password" data-container="body" data-toggle="popover" data-content="密码不能为空">
+						<input type="password" name="password" value="" style="display:none;" autocomplete="off" />
+						<input ng-model="user.password" type="password" name="password" required="" placeholder="请输入登录密码" autocomplete="new-password">
+
+					</div>
+				</div>
+				<div class="inputGroup">
+					<div class="verifyCode" data-rel="l_verifyCode" data-container="body" data-toggle="popover" data-content="验证码不能为空">
+						<input name="l_verifyCode" type="text" ng-model="verificationCode" placeholder="请输入验证码">
+						<div class="verifyImg"><img id="verificationCode" src="" ng-click="changeVerificationCode()"></div>
+					</div>
+				</div>
+				<div class="loginBtn">
+					<a style="cursor: pointer;" ng-click="login()">立 即 登 录</a>
+				</div>
+				<div class="forgetPassword" style="display: block;">
+					<a href="/register" style="border-right:1px solid #fff;">快速注册</a><a href="/findPassword">找回密码</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--尾部-->
+<div>
+	<div ng-include="'templates/layout/bottom.html'"></div>
+</div>
+<!--尾部结束-->

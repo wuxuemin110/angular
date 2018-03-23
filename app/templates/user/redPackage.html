@@ -1,0 +1,354 @@
+<link rel="stylesheet" href="resource/css/page.css">
+<link rel="stylesheet" href="resource/css/redPacket.css">
+<div  ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<!--<link rel="stylesheet" href="resource/css/style_user.css">-->
+	<div class="center-container" style="background-color: #ffffff;min-height: 600px">
+		<!--用户左边导航-->
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+		<div class="redPacketBg">
+			<div class="redPacketCon">
+				<ul class="topUl">
+					<li ng-class="{'currentLi':redIndex==1}">
+						<a href="#" ng-click="[redIndex=1,selectPage(1)]">未使用({{sumCount}}个)</a>
+					</li>
+					<li ng-class="{'currentLi':redIndex==2}">
+						<a href="#" ng-click="[redIndex=2,selectPage1(1)]">已使用({{sumCount1}}个)</a>
+					</li>
+					<li ng-class="{'currentLi':redIndex==3}">
+						<a href="#" ng-click="[redIndex=3,selectPage2(1)]">已过期({{sumCount2}}个)</a>
+					</li>
+				</ul>
+				<!-- 未使用-->
+				<div ng-show="redIndex==1">
+					<div class="redEmpty" ng-show="redEmpty==1">
+
+					</div>
+					<div class="redList" ng-show="redEmpty==2">
+
+						<ul>
+							<li ng-repeat="redPackage in itemList">
+								<div class="money"><span>￥</span><span style="font-size:50px;">{{redPackage.voucherValue | PointToYuan}}</span><span class="redName">{{redPackage.name}}</span></div>
+								<div class="describe">
+									
+									<p>投资金额≥{{redPackage.voucherCondition | PointToYuan}}</p>
+									<p>{{redPackage.restricta}}天以上标的使用</p>
+								</div>
+								<div class="redListBottom">
+									{{redPackage.beginTime | newDate:"yyyy-MM-dd"}} — {{redPackage.expiredTime | newDate:"yyyy-MM-dd"}}
+								</div>
+							</li>
+							<!--<li>
+								<div class="money"><span>￥</span>10</div>
+								<div class="describe">
+									<h2>满标奖励</h2>
+									<p>单次购买金额无限制</p>
+									<p>天（月）标使用</p>
+								</div>
+								<div class="redListBottom">
+									<span>2017-06-06 — 2017-12-31</span>未使用
+								</div>
+							</li>
+							-->
+						</ul>
+
+					</div>
+					<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages>0">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+								<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot">
+								<a ng-click="selectPage(nowPage+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+				</div>
+				<!-- 已使用-->
+				<div ng-show="redIndex==2">
+					<div class="redEmpty1" ng-show="useEmpty==1">
+
+					</div>
+					<div class="grayList" ng-show="useEmpty==2">
+
+						<ul>
+							<li ng-repeat="redPackage in itemList1">
+								<div class="money"><span>￥</span><span style="font-size:50px;">{{redPackage.voucherValue | PointToYuan}}</span><span class="redName">{{redPackage.name}}</span></div>
+								<div class="describe">
+									<p>投资金额≥{{redPackage.voucherCondition | PointToYuan}}</p>
+									<p>{{redPackage.restricta}}天以上标的使用</p>
+								</div>
+								<div class="redListBottom">
+									<span>{{redPackage.beginTime | newDate:"yyyy-MM-dd"}} — {{redPackage.expiredTime | newDate:"yyyy-MM-dd"}}</span>已使用
+								</div>
+							</li>
+							
+						</ul>
+
+					</div>
+					<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages1>0">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage1(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage1(nowPage1-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages1" ng-class="{true:'active'}[page.showNumber==nowPage1]">
+
+								<a ng-click="selectPage1(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot1">
+								<a ng-click="selectPage1(nowPage1+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage1(nowPage1+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage1(totalPages1)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+					
+				</div>
+				<!-- 已使用-->
+				<div ng-show="redIndex==3">
+					<div class="grayList">
+
+						<ul>
+							<li ng-repeat="redPackage in itemList2">
+								<div class="money"><span>￥</span><span style="font-size:50px;">{{redPackage.voucherValue | PointToYuan}}</span><span class="redName">{{redPackage.name}}</span></div>
+								<div class="describe">
+									<p>投资金额≥{{redPackage.voucherCondition | PointToYuan}}</p>
+									<p>{{redPackage.restricta}}天以上标的使用</p>
+								</div>
+								<div class="redListBottom">
+									<span>{{redPackage.beginTime | newDate:"yyyy-MM-dd"}} — {{redPackage.expiredTime | newDate:"yyyy-MM-dd"}}</span>已过期
+								</div>
+							</li>
+						</ul>
+
+					</div>
+					<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages2>0">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage2(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage2(nowPage2-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages2" ng-class="{true:'active'}[page.showNumber==nowPage2]">
+
+								<a ng-click="selectPage2(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot2">
+								<a ng-click="selectPage2(nowPage2+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage2(nowPage2+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage2(totalPages2)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+					<!--<div ng-show="ActotalPages>1" style="overflow: hidden;margin-top: 10px; width: 745px;height:auto ; text-align: center;">
+						<nav style="width: 745px;margin-top: 16px">
+							<ul id="pagination" class="pagination pagination-sm" style="margin: 0 auto;">
+								<li id="firstPage"><span ng-click="selectAcPage1(1)" aria-hidden="true">首页</span></li>
+								<li id="Previous"><span ng-click="selectAcPage1(AcnowPage-1)" aria-hidden="true">«</span></li>
+								<li ng-repeat="page in Acpages" ng-class="{true:'active'}[page.showNumber==AcnowPage]">
+									<a ng-click="selectAcPage1(page.showNumber)">{{page.showNumber}}</a>
+								</li>
+								<li ng-show="AcisShowDot">
+									<a ng-click="selectAcPage1(AcnowPage+6)">……</a>
+								</li>
+								<li id="Next">
+									<a ng-click="selectAcPage1(AcnowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+								</li>
+								<li id="lastPage">
+									<a ng-click="selectAcPage1(ActotalPages)"><span aria-hidden="true">尾页</span></a>
+								</li>
+							</ul>
+						</nav>
+					</div>-->
+				</div>
+			</div>
+			<div class="redRule">
+				<h2>红包使用规则</h2>
+				<p>1、红包分为抵扣红包和现金红包；<br>
+2、抵扣红包使用条件详见红包标注，您在购买时可直接抵扣金额；<br>
+3、现金红包系统会自动加入可用余额中，可直接提现。如有疑问，请联系在线客服!
+</p>
+			</div>
+		</div>
+		<div ng-show="isInvestor" class="fr">
+			<div class="center81">
+
+				<!--<div ng-cloak>
+                    <md-content>
+                        <md-tabs md-dynamic-height md-border-bottom>
+
+                            <md-tab label="加息券">
+                                <md-content class="md-padding">
+                                    <ul>
+                                        <div>
+                                            <div style="padding-left: 18px;padding-top: 10px" class="ul-center">
+                        <span ng-repeat="x in AcitemList | orderBy:'status'">
+                            <a class="icon-0" ng-if="x.type==2">
+                                <h3>{{x.voucherValue | PointToYuan}}&nbsp%</h3>
+                                <p ng-show="x.voucherCondition/100!=0" class="t1">加息券&nbsp;满{{x.voucherCondition |
+                                    PointToYuan}}可用</p>
+                                <p ng-show="x.voucherCondition/100==0" class="t1">无限制</p>
+                                <p class="t2" style="font-size: 12px !important;"><span
+                                        ng-hide="x.status==2||mytime>x.expiredTime">
+                                    {{ x.beginTime | date:'yyyy-MM-dd' }}
+                                    至
+                                    {{ x.expiredTime | date:'yyyy-MM-dd' }}</span>
+                                    <span
+                                            ng-show="x.status==2">(加息券已使用)</span><span
+                                            ng-show="mytime>x.expiredTime&&x.status!=2">(加息券已过期)</span>
+                                </p>
+                            </a>
+                          </span>
+                                            </div>
+
+                                            <div ng-show="ActotalPages>1"
+                                                 style="overflow: hidden;margin-top: 10px; width: 745px;height:auto ; text-align: center;">
+                                                <nav style="width: 745px;margin-top: 16px">
+                                                    <ul id="pagination" class="pagination pagination-sm"
+                                                        style="margin: 0 auto;">
+                                                        <li id="firstPage"><span ng-click="selectAcPage(1)"
+                                                                                 aria-hidden="true">首页</span></li>
+                                                        <li id="Previous"><span ng-click="selectAcPage(AcnowPage-1)"
+                                                                                aria-hidden="true">«</span></li>
+                                                        <li ng-repeat="page in Acpages"
+                                                            ng-class="{true:'active'}[page.showNumber==AcnowPage]">
+                                                            <a ng-click="selectAcPage(page.showNumber)">{{page.showNumber}}</a>
+                                                        </li>
+                                                        <li ng-show="AcisShowDot"><a
+                                                                ng-click="selectAcPage(AcnowPage+6)">……</a></li>
+                                                        <li id="Next"><a ng-click="selectAcPage(AcnowPage+1)"
+                                                                         aria-label="Next"><span
+                                                                aria-hidden="true">»</span></a></li>
+                                                        <li id="lastPage"><a ng-click="selectAcPage(ActotalPages)"><span
+                                                                aria-hidden="true">尾页</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </md-content>
+                            </md-tab>
+
+
+                            <md-tab label="红包券">
+                                <md-content class="md-padding">
+                                    <ul>
+                                        <div>
+                                            <div style="padding-left: 18px;padding-top: 10px" class="ul-center">
+
+
+                        <span ng-repeat="x in PkitemList | orderBy:'status'">
+                            <a class="icon-2" ng-if="x.type==0">
+                                <h3>￥&nbsp{{x.voucherValue | PointToYuan}}<span style="font-size: 12px"
+                                                                                ng-if="x.restricta==1">(限一月标)</span><span
+                                        style="font-size: 12px" ng-if="x.restricta==3">(限三月标)</span></h3>
+                                <p ng-show="x.voucherCondition/100!=0" class="t1">现金红包券&nbsp;满{{x.voucherCondition |
+                                    PointToYuan}}可用</p>
+
+                                <p ng-show="x.voucherCondition/100==0" class="t1">无限制</p>
+
+                                <p class="t2" style="color: #f5c7c6;font-size: 12px"><span
+                                        ng-hide="x.status==2||mytime>x.expiredTime">
+                                    {{ x.beginTime | date:'yyyy-MM-dd' }}
+                                    至
+                                    {{ x.expiredTime | date:'yyyy-MM-dd' }}</span>
+                                    <span ng-show="x.status==2">(现金红包券已使用)</span><span
+                                            ng-show="mytime>x.expiredTime&&x.status!=2">(现金红包券已过期)</span>
+                                </p>
+                            </a>
+                          </span>
+                                            </div>
+                                            <div ng-show="PktotalPages>1"
+                                                 style="overflow: hidden;margin-top: 10px; width: 745px;height:auto ; text-align: center;">
+                                                <nav style="width: 745px;margin-top: 16px">
+                                                    <ul id="pagination" class="pagination pagination-sm"
+                                                        style="margin: 0 auto;">
+                                                        <li id="firstPage"><span ng-click="selectPocketPage(1)"
+                                                                                 aria-hidden="true">首页</span></li>
+                                                        <li id="Previous"><span ng-click="selectPocketPage(PknowPage-1)"
+                                                                                aria-hidden="true">«</span></li>
+                                                        <li ng-repeat="page in Pkpages"
+                                                            ng-class="{true:'active'}[page.showNumber==PknowPage]">
+                                                            <a ng-click="selectPocketPage(page.showNumber)">{{page.showNumber}}</a>
+                                                        </li>
+                                                        <li ng-show="PkisShowDot"><a
+                                                                ng-click="selectPocketPage(PknowPage+6)">……</a></li>
+                                                        <li id="Next"><a ng-click="selectPocketPage(PknowPage+1)"
+                                                                         aria-label="Next"><span
+                                                                aria-hidden="true">»</span></a></li>
+                                                        <li id="lastPage"><a
+                                                                ng-click="selectPocketPage(PktotalPages)"><span
+                                                                aria-hidden="true">尾页</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                    </md-content>
+                </div>-->
+				<!--结束-->
+			</div>
+		</div>
+	</div>
+	<script src="resource/js/index.js"></script>
+	<!--尾部-->
+	<div ng-include="'templates/layout/bottom.html'"></div>
+	<!--尾部结束-->
+</div>

@@ -1,0 +1,193 @@
+<link rel="stylesheet" href="resource/css/userWithdraw.css">
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<style>
+		* {
+			font-family: '微软雅黑';
+		}
+		
+		body {
+			background-color: #e3e3e3;
+		}
+		
+		dl,
+		dt,
+		dd {
+			display: block;
+			margin: 0;
+		}
+		
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+	</style>
+	<div class="center-container" style="background-color: #ffffff;">
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+		<div class="fr" style="padding: 0px;">
+			<div class="userWithdrawBg">
+				
+				<div class="rechargeTab">
+					<ul>
+						<li>
+							<a href="/user/userRecharge">快捷充值</a>
+						</li>
+						<li class="current">
+							<a href="/user/userOnlineBank">网银充值</a>
+						</li>
+					</ul>
+				</div>
+				<div class="userWithdrawCon">
+					<ul>
+						<form name="form1" id="form1">
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">账户余额:</span>
+									<font class="noControl">
+										{{userAccount.money | PointToYuan | currency:"":2}}<span>元</span>
+									</font>
+
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">充值方式:</span>
+									<span class="onlineBankData">
+									  <img src="resource/images/user/onlineBankIcon.jpg">
+									</span>
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">充值金额:</span>
+									<form style="display:none">
+										<input type="text" style="display:none" />
+										<input type="password" style="display:none" />
+									</form>
+									<input type="text" name="money" class="formControl" ng-model="tradeRecord.money" placeholder="充值金额不能少于100元/次" autocomplete="new-password">
+								</div>
+							</li>
+
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">支付密码:</span>
+									<input type="password" style="display: none;" autocomplete="off" name="tradePassword" />
+									<input type="password" name="tradePassword" class="formControl" placeholder="请输入支付密码" ng-model="tradeRecord.tradePassword" autocomplete="new-password">
+								</div>
+							</li>
+							<!--<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">验证码:</span>
+									<input style="width: 180px" type="text" ng-model="smsCode" name="verifyCode" id="amount" class="formControl" placeholder="请输入手机验证码" aria-describedby="basic-addon1" required="">
+									<button id="sendBtn" ng-disabled="DisableSendBtn" ng-click="sendSms()" type="button" class="sendBtn">获取
+                                    </button>
+								</div>
+							</li>-->
+							<li>
+								<button type="button" class="withdrawBtn" ng-click="recharge()">充值
+                                </button>
+							</li>
+						</form>
+					</ul>
+
+				</div>
+				<div class="userWithdrawRule">
+					<h2>温馨提示：</h2>
+					<p> 1、为了您的账户安全，请在充值前进行身份验证、手机绑定<br> 2、您的账户资金将通过第三方平台进行充值
+						<br> 3、请注意您的银行卡充值限制，以免造成不便
+						<br> 4、禁止洗钱，信用卡套现，虚假交易等行为，一经发现并确认，将终止该账户的使用
+						<br> 5、提取金额小数点后不超过2位数
+						<br> 6、如果充值金额没有及时到帐，请联系客服 <br>
+					</p>
+				</div>
+
+			</div>
+
+			<div class="chong">
+
+				<!--提交到第三方的Form表单-->
+				<div class="modal fade" id="huichaoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+					<div class="modal-dialog" role="document" style="margin-top: 20%; margin-left: 44%;">
+						<div class="modal-content" style="width: 400px;">
+							<div class="modal-header" style="border-bottom: 0px solid #e5e5e5;">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+								<h4 class="modal-title" id="myModalLabel1">确认充值？</h4>
+							</div>
+							<div class="modal-body">
+								<!--网银充值测试接口-->
+								<!--<form class="form-inline" target="_blank" action="http://www-1.fuiou.com:8888/wg1_run/smpGate.do" method="post" name="E_FORM">-->
+								<!--网银充值正式接口-->
+								<form class="form-inline" target="_blank" action="https://pay.fuiou.com/smpGate.do" method="post" name="E_FORM">
+
+									<input type="hidden" name="md5" value="{{payBody.md5}}">
+									<input type="hidden" name="mchnt_cd" value="{{payBody.mchnt_cd}}">
+									<input type="hidden" name="order_id" value="{{payBody.order_id}}">
+									<input type="hidden" name="order_amt" value="{{payBody.order_amt}}">
+									<input type="hidden" name="order_pay_type" value="{{payBody.order_pay_type}}">
+									<!--<input type="hidden" name="defaultBankNumber" value="NOCARD">-->
+									<!--<input type="hidden" name="payType" value="noCard">-->
+									<input type="hidden" name="page_notify_url" value="{{payBody.page_notify_url}}">
+									<input type="hidden" name="back_notify_url" value="{{payBody.back_notify_url}}">
+									<input type="hidden" name="iss_ins_cd" value="{{payBody.iss_ins_cd}}">
+									<input type="hidden" name="goods_name" value="{{payBody.goods_name}}">
+									<input type="hidden" name="goods_display_url" value="{{payBody.goods_display_url}}">
+									<input type="hidden" name="order_valid_time" value="{{payBody.order_valid_time}}">
+									<input type="hidden" name="rem" value="{{payBody.rem}}">
+									<input type="hidden" name="ver" value="{{payBody.ver}}">
+									<center>
+
+										<button type="submit" class="btn btn-info" ng-click="showModal()">确认充值
+                                        </button>
+									</center>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: -20px;">
+					<div class="modal-dialog" role="document" style="margin-top: 15%;">
+						<div class="modal-content">
+							<div class="modal-header" style="border-bottom: 0px solid #e5e5e5;">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+								<h4 class="modal-title" id="myModalLabel">是否充值成功？</h4>
+							</div>
+							<div class="modal-footer" style="border-bottom: 1px solid #e5e5e5;">
+								<div class="row">
+									<div class="col-md-6">
+										<button type="button" class="btn btn-default btn-block" onclick="location.reload(true)">充值成功
+                                        </button>
+									</div>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-default btn-block" data-dismiss="modal" aria-label="Close">充值失败，重新充值
+                                        </button>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<!--<div class="con1">
+                    <div class="tt">温馨提示</div>
+                    1、为了您的账户安全，请在充值前进行身份验证、手机绑定<br>
+                    2、您的账户资金将通过第三方平台进行充值<br>
+                    3、请注意您的银行卡充值限制，以免造成不便<br>
+                    4、禁止洗钱，信用卡套现，虚假交易等行为，一经发现并确认，将终止该账户的使用<br>
+                    5、提取金额小数点后不超过2位数<br>
+                    6、如果充值金额没有及时到帐，请联系客服 4000-534-606.<br>
+                </div>-->
+			</div>
+		</div>
+		<!--fr end-->
+		<div class="clear"></div>
+	</div>
+	<!--尾部-->
+	<div ng-include="'templates/layout/bottom.html'"></div>
+	<!--尾部结束-->
+</div>

@@ -1,0 +1,187 @@
+<div style="background-color: #e3e3e3">
+    <!--头部-->
+    <div ng-include="'templates/layout/top.html'"></div>
+    <!--头部结束-->
+    <link rel="stylesheet" href="resource/css/style_user.css">
+    <link rel="stylesheet" href="resource/css/tk.css">
+    <link rel="stylesheet" href="resource/css/tk1.css">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", helvetica, arial, verdana, tahoma, sans-serif !important;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <style>
+        * {
+            font-family: '微软雅黑';
+        }
+
+        body {
+            background-color: #e3e3e3;
+        }
+
+        dl, dt, dd {
+            display: block;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .leftsidebar_box {
+            margin: auto;
+            width: 199px;
+            position: absolute;
+        }
+
+        .leftsidebar_box dl {
+            text-align: center;
+            margin-bottom: 0;
+
+        }
+
+        .leftsidebar_box dl dd {
+            text-align: center;
+
+            color: #333;
+        }
+
+        .leftsidebar_box dt {
+            line-height: 38px;
+            background-color: #f5f5f5;
+            border-right: solid 1px #D2CBCB;
+        }
+
+        .leftsidebar_box dt img {
+            margin-top: 18px;
+            position: absolute;
+            right: 10px;
+        }
+
+        .leftsidebar_box dl dd a {
+            text-align: center;
+            line-height: 40px;
+            color: #777;
+            text-decoration: none;
+            display: block;
+        }
+
+        .leftsidebar_box dl dd .ddhover {
+            box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #17B6FF;
+            color: #17B6FF;
+        }
+
+        .leftsidebar_box dl dd:hover {
+            box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #17B6FF;
+        }
+
+        .adress {
+            color: #ff7475;
+            line-height: 18px;
+        }
+    </style>
+
+    <div class="center-container" style="background-color: #ffffff;">
+        <!--fl start-->
+        <div ng-include="'templates/layout/userLeft.html'"></div>
+        <!--fl end--><!--fr start-->
+        <div class="fr">
+            <div class="ji">
+                <div class="ji-c2">
+                    <div class="c2-t">基本信息<span> </span></div>
+                    <div class="c2-c" id="myform">
+                        <ul>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">用&nbsp;户&nbsp;名</span>
+                                    <input disabled="disabled" type="text" class="form-control"
+                                           ng-model="userName">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="real-name">真实姓名</span>
+                                    <input id="realName" type="text" class="form-control"
+                                           ng-model="userInfo.realName">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">身份证号</span>
+                                    <input id="idCard" type="text" class="form-control"
+                                           ng-model="userInfo.idCard">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">电子邮箱</span>
+                                    <input type="email" id="email" maxlength="30"
+                                           onblur="return emailCheck('email', 'email')" name="email"
+                                           class="form-control" ng-model="userInfo.email" required>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">手机号码</span>
+                                    <input id="phone"  type="text" class="form-control"
+                                           ng-model="userInfo.phone">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">个人地址</span>
+                                    <input id="" type="text" class="form-control"
+                                           ng-model="userInfo.address">
+                                </div>
+                            </li>
+                            <li style="margin-top: -20px;line-height: 14px">
+                                 <span class="adress">*提供真实姓名和有效住址，方便
+                                                       活动结束给投资人发送活动奖励
+                                </span>
+                            </li>
+                            <li>
+                                <button type="submit" class="btn btn-primary baocun" style="width: 280px"
+                                        ng-click="update()">
+                                    保存
+                                </button>
+
+                                <div class="clear"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="center4-tip">温馨提示：真实姓名和身份证号及手机号码一经填写不可修改，需要修改请联系我们客服</div>
+                </div>
+            </div>
+        </div>
+        <!--fr end-->
+        <div class="clear"></div>
+    </div>
+
+    <!--尾部-->
+    <div ng-include="'templates/layout/bottom.html'"></div>
+    <!--尾部结束-->
+</div>
+<script>
+    function emailCheck(obj, labelName) {
+        var objName = eval("document.all." + obj);
+        var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+        if (!pattern.test(objName.value)) {
+            alert("您的邮箱很重要，请输入正确的邮箱地址。");
+            objName.focus();
+            return false;
+        }
+        return true;
+    }
+</script>

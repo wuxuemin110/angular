@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="resource/css/page.css">
+<link rel="stylesheet" href="resource/css/InvestmentRecord.css">
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<div class="center-container" style="background-color: #ffffff;min-height: 650px;">
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+		<div class="fr">
+			
+			<div class="fundData">
+				<div class="tableWrap">
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th class="min-7 max-10" style="border-left:1px solid #FE4C58;">日期</th>
+							<th class="min-7 max-10">交易类型</th>
+							<th class="min-7 max-10">收支记录（元）</th>
+							<th class="min-7 max-10">可用余额（元）</th>
+							<th class="min-7 max-10">冻结金额（元）</th>
+
+							<th style="border-right:1px solid #FE4C58;">备注</th>
+						</tr>
+						<tr ng-repeat="userRepays in itemList">
+							<td >{{userRepays.createdTime | newDate:'yyyy-MM-dd'}}</td>
+							<td ng-show="userRepays.state==0">投资成功</td>
+							<td ng-show="userRepays.state==1">充值成功</td>
+							<td ng-show="userRepays.state==2">申请提现</td>
+							<td ng-show="userRepays.state==3">提现成功</td>
+							<td ng-show="userRepays.state==4">提现失败</td>
+							<td ng-show="userRepays.state==5">正常还款</td>
+							<td ng-show="userRepays.state==6">平台奖励</td>
+							<td>{{userRepays.money | PointToYuan | currency:"":2}}</td>
+							<td>{{userRepays.balance | PointToYuan | currency:"":2}}</td>
+							<td>{{userRepays.frozenMoney | PointToYuan | currency:"":2}}</td>
+
+							<td>{{userRepays.remark}}</td>
+						</tr>	
+					</table>
+				</div>
+
+			</div>
+			<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages>1">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+								<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot">
+								<a ng-click="selectPage(nowPage+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+
+		</div>
+		<!--fr end-->
+	</div>
+	<!--尾部-->
+	<div>
+		<div ng-include="'templates/layout/bottom.html'"></div>
+	</div>
+	<!--尾部结束-->
+</div>

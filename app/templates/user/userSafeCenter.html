@@ -1,0 +1,264 @@
+<link rel="stylesheet" href="resource/css/userSafeCenter.css">
+<style>
+	@charset "UTF-8";
+	[ng\:cloak],
+	[ng-cloak],
+	[data-ng-cloak],
+	[x-ng-cloak],
+	.ng-cloak,
+	.x-ng-cloak,
+	.ng-hide:not(.ng-hide-animate) {
+		display: none !important;
+	}
+	
+	ng\:form {
+		display: block;
+	}
+</style>
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+
+	<div class="center-container" style="background-color: #ffffff;" ng-cloak>
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+
+		<div class="fr">
+			<div class="userSafeCenter">
+				<!--<div class="safeGrade">
+					<span>您的安全等级</span>
+					<div class="safeProgressBg">
+						<div class="safeProgressNow" style="width:{{UserInfo.width}}%">
+						</div>
+					</div>
+					<span class="grade">{{UserInfo.width}}%</span>
+				</div>-->
+				<div class="safeCenterDiv">
+					<ul>
+						<li ng-class="{'active':showPassword==2}">
+							<div class="liTitle"><img src="resource/images/user/imgIcon1.png"><span>登录密码</span><strong>******</strong>
+								<a href="#" class="aBtn " ng-show="showPassword==1" ng-click="showPassword=2">修改</a>
+								<a href="#" class="aBtn" ng-show="showPassword==2" ng-click="showPassword=1">取消</a>
+							</div>
+							<div class="modifyPassword" ng-show="showPassword==2">
+								<div class="inputGroupWrap">
+								<div class="inputGroup" style="display: none;">
+									<input type="password" style="display: none;"  name="password" />
+									<span class="span1"></span>
+									<input type="password" class="passwordInput" name="password"  placeholder="请输入原登录密码">
+								</div>
+								<div class="inputGroup">
+									<input type="password" style="display: none;"  name="password" />
+									<span class="span1"></span>
+									<input type="password" class="passwordInput" name="password" ng-model="password.password" autocomplete="new-password" placeholder="请输入原登录密码">
+								</div>
+								
+								<!--<div class="inputGroup" style="display: none;">
+									<span class="span1"></span>
+									<input type="password" style="display: none;" autocomplete="off" name="phone" />
+									<input type="password" class="passwordInput" autocomplete="new-password" placeholder="请输入原登录密码">
+								</div>-->
+								<div class="inputGroup">
+									<input type="password" style="display: none;"  name="passwordNew" />
+									<span class="span1"></span>
+									<input type="password" class="passwordInput" name="passwordNew" ng-model="password.passwordNew" placeholder="请输入6-20位登录密码">
+								</div>
+								<div class="inputGroup">
+									<input type="password" style="display: none;"  name="passwordNew2" />
+									<span class="span1"></span>
+									<input type="password" class="passwordInput" name="passwordNew2" ng-model="password.passwordNew2" placeholder="再次输入密码">
+								</div>
+								<div class="passwordBtn" ng-click="update()">
+									确定
+								</div>
+								</div>
+							</div>
+						</li>
+						<li ng-class="{'active':showRealname==2}">
+							<!--未认证-->
+							<div ng-show="UserInfo.hasCardId!=true" class="liTitle"><img src="resource/images/user/imgIcon2.png"><span>实名认证</span><strong>实名认证，账户更安全</strong>
+								<a href="javascript:" class="aBtn" name="开通" ng-show="showRealname==1" ng-click="showRealname=2">开通</a>
+								<a href="javascript:" class="aBtn" name="收起" ng-show="showRealname==2" ng-click="showRealname=1">取消</a>
+							</div>
+							<div class="modifyPassword" ng-show="showRealname==2">
+								<div class="submitBank">
+									<ul>
+										<form name="form1" id="form1" method="post" action="?myar=5" class="formBank">
+											
+
+											<li>
+												<div class="input-group">
+													<span class="inputGroupAddon">真实姓名:</span>
+													<input type="text" class="form-control" placeholder="请输入真实姓名" aria-describedby="basic-addon1"  ng-model="userCard.realName">
+												</div>
+											</li>
+											<li>
+												<div class="input-group">
+													<span class="inputGroupAddon">身份证号:</span>
+													<input type="text" class="form-control"  placeholder="请输入身份证号码" aria-describedby="basic-addon1" ng-model="userCard.idCard">
+												</div>
+											</li>
+											<li>
+												<div class="input-group">
+													<span class="inputGroupAddon">选择银行:</span>
+
+													<select class="form-control" ng-model="userCard.bankCode">
+														<option value="{{x.id}}" ng-repeat="x in banks">{{x.label}}</option>
+
+													</select>
+												</div>
+											</li>
+											<li>
+
+												<div class="form-horizontal">
+													<div class="input-group">
+														<span class="inputGroupAddon">请选择省:</span>
+
+														<select class="form-control" ng-model="userCard.province" ng-options="key as key for (key,value) in cityData"></select>
+													</div>
+													<div class="input-group">
+														<span class="inputGroupAddon">请选择市:</span>
+														<select class="form-control" ng-model="userCard.city" ng-options="key as key for (key,value) in cityData[userCard.province]"></select>
+													</div>
+													<div class="input-group">
+														<span class="inputGroupAddon">请选择区县:</span>
+														<select class="form-control" ng-model="userCard.district" ng-options="key as key for (key,value) in cityData[userCard.province][userCard.city]"></select>
+													</div>
+												</div>
+
+											</li>
+											<li>
+												<div class="input-group">
+													<span class="inputGroupAddon">银行卡号:</span>
+													<input type="text" class="form-control" ng-model="userCard.cardNumber" placeholder="请输入银行卡号">
+												</div>
+											</li>
+											<li>
+												<div class="input-group">
+													<span class="inputGroupAddon" id="basic-addon1">开户支行名:</span>
+													<input type="text" class="form-control" placeholder="请填写开户支行名" ng-model="userCard.subbranch" autocomplete="off">
+												</div>
+											</li>
+											<li>
+												<!--<div class="submitBankBtn" ng-click="updateRealName(userCard)">提交
+												</div>-->
+												<div class="submitBankBtn" ng-click="updateRealName(userCard)">提交
+												</div>
+											</li>
+										</form>
+									</ul>
+								</div>
+								<!--<div style="line-height: 35px;"><img src="resource/images/user/imgIcon2.png"><span style="color: #ff0000; ">请输入您真实姓名</span></div>
+								<div class="inputGroup">
+									<span class="span3"></span>
+									<input type="text" class="passwordInput" ng-model="idcard.realName" placeholder="请输入姓名">
+								</div>
+								<div class="inputGroup">
+									<span class="span1"></span>
+									<input type="text" class="passwordInput" ng-model="idcard.idCard" placeholder="请输入身份证号码">
+								</div>
+								<div class="passwordBtn" ng-click="updateRealName()">
+									确定
+								</div>-->
+							</div>
+							<!--已认证-->
+							<div ng-show="UserInfo.hasCardId!=false" class="liTitle"><img src="resource/images/user/imgIcon1.png"><span>实名认证</span><strong>{{getIdcard.realName}}(身份已认证{{getIdcard.idCard}})</strong>
+
+							</div>
+						</li>
+						<li ng-class="{'active':showfrom==2}">
+							<!--未设置交易密码-->
+							<div ng-show="UserInfo.hasTradePassword!=true" class="liTitle"><img src="resource/images/user/imgIcon2.png"><span>交易密码</span><strong></strong>
+								<a href="javascript:" class="aBtn" name="设置" ng-show="showfrom==1" ng-click="showfrom=2">设置</a>
+								<a href="javascript:" class="aBtn" name="收起" ng-show="showfrom==2" ng-click="showfrom=1">取消</a>
+							</div>
+							<!--已设置交易密码-->
+							<div ng-show="UserInfo.hasTradePassword!=false" class="liTitle"><img src="resource/images/user/imgIcon1.png"><span>交易密码</span><strong></strong>
+								<a href="javascript:" class="aBtn" name="收起" ng-show="showfrom==2" ng-click="showfrom=1">取消</a>
+								<a href="javascript:" class="aBtn" name="设置" ng-show="showfrom==1" ng-click="showfrom=2">设置</a>
+
+							</div>
+							<div class="modifyPassword" ng-show="showfrom==2">
+								<div class="inputGroupWrap">
+								<div class="phoneCodeBg" data-rel="r_verifyCode" data-container="body" data-toggle="popover" data-content="验证码不能为空">
+									<input type="text" style="display: none;" name="code"/>
+									<div class="phoneCode"><span class="span2"></span><input ng-model="tradePassword.code" type="text"  name="code" placeholder="请输入验证码"></div>
+
+									<div class="verifySms">
+										<a ng-click="sendSms()">获取</a>
+									</div>
+								</div>
+								<div class="phoneCodeBg" style="display: none;">
+									<input type="text" style="display: none;" name="code"/>
+									<div class="phoneCode"><span class="span2"></span><input  type="text"  name="code" placeholder="请输入验证码"></div>
+
+									<div class="verifySms">
+										<a ng-click="sendSms()">获取</a>
+									</div>
+								</div>
+								<div class="inputGroup">
+									<input type="password" style="display: none;" name="pwd1"/>
+									<span class="span1"></span>
+									<input type="password" class="passwordInput" ng-model="tradePassword.pwd1" name="pwd1" autocomplete="new-password" placeholder="请输入6-20位交易密码">
+								</div>
+								<div class="inputGroup">
+									<input type="password" style="display: none;" name="pwd2"/>
+									<span class="span1"></span>
+									<input type="password" class="passwordInput" ng-model="tradePassword.pwd2" name="pwd2" autocomplete="new-password" placeholder="再次输入交易密码">
+								</div>
+								<!--<div class="verifyCodeBg">
+									<div class="verifyCode">
+										<input type="text" ng-model="imgCode" placeholder="请输入图片验证码" autocomplete="off">
+									</div>
+									<div class="verifyImg"><img id="verificationCode" src="" ng-click="changeVerificationCode()"></div>
+
+								</div>-->
+
+								<div class="passwordBtn" ng-click="updateTradePassword()">
+									确定
+								</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+		<!--fr end-->
+		<div class="clear"></div>
+	</div>
+	<!--尾部-->
+	<div ng-include="'templates/layout/bottom.html'"></div>
+	<!--尾部结束-->
+</div>
+<script>
+	//  function passwordCheck(obj, labelName) {
+	//      var objName = eval("document.all." + obj);
+	//      if (document.getElementById('password').value.length < 6) {
+	//          alert("密码必须要大于6个字符");
+	//          objName.focus();
+	//          return false;
+	//      }
+	//      return true;
+	//  }
+
+	//	$(document).ready(function($){
+	//
+	//$("#aBtn").click(function() {
+	//	var textName=$(this).attr("name");
+	//	var modifyPassword=$(this).parent("div").siblings();
+	//if(modifyPassword.css("display")=="none"){
+	// modifyPassword.show();
+	//                $(this).parents("li").addClass("active");
+	//               $(this).text("收起");
+	//}else{
+	//                  modifyPassword.hide();
+	//               $(this).parents("li").removeClass("active");
+	//              $(this).text(textName);
+	//}
+	//	})	
+	//
+	//	}(jQuery));
+</script>

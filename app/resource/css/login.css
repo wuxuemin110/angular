@@ -1,0 +1,34 @@
+/* CSS Document */
+.res{ width:1042px; height:639px; margin:0 auto; overflow:hidden; background:url(../images/res_bg.png) no-repeat;}
+.res .res_box{ width:345px; height:500px; background:url(../images/box_bg.png) no-repeat; float:right; margin-right:60px; margin-top:23px;}
+.res .res_box table{ margin:16px auto; color:#333;}
+.res .res_box table input{ border:1px solid #ccc; border-radius:3px;}
+.res .res_box table #code{ width:68px;}
+
+.login{ width:1042px; height:639px; margin:0 auto; overflow:hidden; background:url(../images/res_bg.png) no-repeat;}
+.login .login_box{ width:345px; height:500px; background:url(../images/box_bg_1.png) no-repeat; float:right; margin-right:60px; margin-top:23px; position:relative;}
+.login .login_box .acc{ width:250px; height:28px; margin-top:111px; margin-left:108px;}
+.login .login_box .acc input{ width:168px; height:25px; border:none; outline:none;}
+.login .login_box .pwd{ width:250px; height:28px; margin-top:20px; margin-left:108px;}
+.login .login_box .pwd input{ width:168px; height:25px; border:none; outline:none;}
+.login .login_box .pwd a{color: #00A0E6;font-size: 12px;}
+.login .login_box .submit{ width:210px; height:25px; margin:27px auto; word-break:keep-all;}
+.login .login_box .submit input{ vertical-align:middle;}
+.login .login_box .submit a{ color:#09c;}
+
+.foget{ width:1042px; height:600px; margin:0 auto 80px auto; overflow:hidden;background: #F0F8FF;}
+.foget .f_tab{ width:1041px; height: 35px;background: #FFF;overflow: hidden;}
+.foget .f_tab span{float: left;height: 45px;line-height: 35px;font-size: 15px;padding: 0 30px;background: #009ACD;font-family: '微软雅黑';border-radius:10px;}
+.foget .f_tab .choose{background: #F0F8FF;border: 1px solid #009ACD;}
+
+.foget .content{width:782px;height:550px;padding: 50px 0 0 242px;background:url(../images/forget.png) no-repeat right;}
+.foget .content .find_title{font-size: 20px; font-family: '黑体';}
+.foget .content .send_box{width:600px;height: 120px;padding: 15px 0 0 0;}
+.foget .content .send_box .acc{width:600px; height:28px;float: left;}
+.foget .content .send_box .acc input{width: 200px;height: 25px;}
+.foget .content .send_box .code{width:600px; height:28px;float: left;margin-top: 20px;margin-bottom: 20px;}
+.foget .content .send_box .code input{width: 200px;height: 25px; float: left;}
+.foget .content .send_box .submit input{width: 100px; height: 30px;background: #4B7FAE; border-radius: 5px;color: #FFF;}
+
+
+

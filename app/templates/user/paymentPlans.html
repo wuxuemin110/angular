@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="resource/css/page.css">
+<link rel="stylesheet" href="resource/css/InvestmentRecord.css">
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<div class="center-container" style="background-color: #ffffff;min-height: 650px;">
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+		<div class="fr">
+			<div class="recordData">
+				<div class="tableWrap">
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th style="width: 100px;border-left:1px solid #FE4C58;">回款日期</th>
+							<th style="width: 100px;">项目名称</th>
+							<th>本期/总期</th>
+							<th>回款本金</th>
+							<th>回款利息（元）</th>
+							<th>加息利息（元）</th>
+							<th>状态</th>
+							<th>实回日期</th>
+							<th style="border-right:1px solid #FE4C58;">实回总额</th>
+						</tr>
+						<tr ng-repeat="userRepays in itemList">
+							<td>{{userRepays.repayDay | newDate:'yyyy-MM-dd'}}</td>
+							<td>{{userRepays.name}}</td>
+							<td>{{userRepays.period}}/{{userRepays.length}}</td>
+							<td>{{userRepays.corpus | PointToYuan | currency:"":2}}</td>
+							<td>{{userRepays.interest | PointToYuan | currency:"":2}}</td>
+							<td>{{userRepays.raisingInterest | PointToYuan | currency:"":2}}</td>
+							<td ng-show="userRepays.status==1">等待回款</td>
+							<td ng-show="userRepays.status==2">已回款</td>
+							<td>{{userRepays.time | newDate:'yyyy-MM-dd'}}</td>
+							<td>{{userRepays.total | PointToYuan | currency:"":2}}</td>
+						</tr>
+						<!--<tr  class="nav-investors">
+                        <td colspan="9">
+                            <nav style="text-align: center;">
+                                <ul class="pagination">
+                                    <li>
+                                        <a ng-click="selectPaymentPlansPages(nowPaymentPlanPage-1)" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li ng-class="{true:'active'}[($index+1)==nowPaymentPlanPage]"
+                                        ng-repeat="page in paymentplanPages"><a
+                                            ng-click="selectPaymentPlansPages($index+1)">{{$index+1}}</a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="selectPaymentPlansPages(nowPaymentPlanPage+1)" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </td>
+                    </tr>-->
+					</table>
+				</div>
+				<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages>1">
+
+					<nav>
+
+						<ul id="pagination" class="pagination pagination-sm" style="">
+
+							<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+							<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+							<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+								<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+							</li>
+
+							<li ng-show="isShowDot">
+								<a ng-click="selectPage(nowPage+6)">……</a>
+							</li>
+
+							<li id="Next">
+								<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+
+							<li id="lastPage">
+								<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+							</li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+			</div>
+			<!--<div id="template_pagination">
+				<table class="table-yyyy" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<th class="t1" style="background-color: #36abde;width: 80px">序号</th>
+							<th class="t1" style="background-color: #36abde;width: 100px">交易类别</th>
+							<th class="t1" style="background-color: #36abde;width: 230px">交易名称</th>
+							<th class="t1" style="background-color: #36abde;width: 80px">金额/利率</th>
+							<th class="t1" style="background-color: #36abde;width: 160px">时间</th>
+						</tr>
+						<tr ng-repeat="tradeRecord in itemList">
+							<td height="34" align="center">{{startIndex+$index}}</td>
+							<td align="center">{{tradeRecord.type | TradeType}}</td>
+							<td align="center">{{tradeRecord.remark}}</td>
+							<td ng-hide="(tradeRecord.type==130 || tradeRecord.type==330 || tradeRecord.type==830)" align="center">
+								{{tradeRecord.money | PointToYuan}} 元
+							</td>
+							<td ng-show="(tradeRecord.type==130 || tradeRecord.type==330 || tradeRecord.type==830)" align="center">
+								{{tradeRecord.money | PointToYuan}}%
+							</td>
+							<td align="center">{{tradeRecord.createdTime | date:'yyyy-MM-dd &nbsp HH:mm:ss'}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>-->
+			<!--<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-if="totalPages>1">
+				<nav>
+					<ul id="pagination" class="pagination pagination-sm" style="">
+						<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+						<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+						<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+							<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+						</li>
+						<li ng-show="isShowDot">
+							<a ng-click="selectPage(nowPage+6)">……</a>
+						</li>
+						<li id="Next">
+							<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+						</li>
+						<li id="lastPage">
+							<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+						</li>
+					</ul>
+				</nav>
+			</div>-->
+
+		</div>
+		<!--fr end-->
+	</div>
+	<!--尾部-->
+	<div>
+		<div ng-include="'templates/layout/bottom.html'"></div>
+	</div>
+	<!--尾部结束-->
+</div>

@@ -1,0 +1,128 @@
+<!--angular-material-->
+<link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet">
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+<link rel="stylesheet" href="resource/css/userWithdraw.css">
+<div style="background-color: #e3e3e3" ng-cloak>
+
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<div class="center-container" style="background-color: #ffffff;">
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+		<div class="fr" style="padding: 0px;">
+			<div class="userWithdrawBg">
+				<!--<h3><span>上次登录：{{ UserInfo.lastLoginTime | date:"yyyy-MM-dd HH:mm:ss" }}</span>提现</h3>-->
+				<div class="userWithdrawCon">
+					<ul>
+						<form name="form1" id="form1" method="post" action="my_tixianif.php">
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">账户余额:</span>
+									<font class="noControl">
+										{{userAccount.money | PointToYuan | currency:"":2}}<span>元</span>
+									</font>
+
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">提现金额:</span>
+									<form class="layui-form" style="display:none">
+										<input type="text" style="display:none" />
+										<input type="password" style="display:none" />
+									</form>
+
+									<input type="text" style="display: none;" autocomplete="off" name="amount" />
+									<input type="text" name="amount" class="formControl" ng-model="tradeRecord.money" placeholder="最低提现金额100.00元" autocomplete="new-password">
+									<span class="inputGroupAddon2">剩余免费提现{{withdrawCount.count}}次数</span>
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">提现银行卡号:</span>
+									<font style=" font-size: 14px; color:#686868" class="noControl">{{userCard[0]['bankName']}}:{{userCard[0]['cardNumber']}}</font>
+								</div>
+							</li>
+
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">提现费用:</span>
+									<font class="noControl">{{withdrawCount.money | PointToYuan}}<span>元</span>
+									</font>
+
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">实际到账:</span>
+									<font class="noControl" ng-show="tradeRecord.money<3||tradeRecord.money==undefined">
+										0<span>元</span>
+									</font>
+									<font class="noControl" ng-show="tradeRecord.money>2">
+										{{ tradeRecord.money-withdrawCount.money/100}}<span>元</span>
+									</font>
+
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">支付密码:</span>
+									<input type="password" style="display: none;" autocomplete="off" name="password" />
+									<input type="password" name="password" class="formControl" placeholder="请输入支付密码" ng-model="tradeRecord.tradePassword" name="password" autocomplete="new-password">
+								</div>
+							</li>
+							<!--<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">验证码:</span>
+									<input style="width: 180px" type="text" ng-model="smsCode" name="verifyCode" id="amount" class="formControl" placeholder="请输入手机验证码" aria-describedby="basic-addon1" required="">
+									<button id="sendBtn"  ng-click="sendSms()"  class="sendBtn">
+									
+										获取
+                                    </button>
+								</div>
+							</li>-->
+							<li>
+								<button type="button" class="withdrawBtn" ng-click="withdraw()">提现
+                                </button>
+							</li>
+						</form>
+					</ul>
+
+				</div>
+				<div class="userWithdrawRule">
+					<h2>温馨提示：</h2>
+					<p>1、请确保您输入的提现金额，以及银行账号信息准确无误<br> 2、如果您填写的提现信息不正确可能会导致提现失败，由此产生的提现费用将不予返还
+						<br> 3、如若在双休日和法定节假日期间，用户申请提现，平台会在下一个工作日进行处理。由此造成的不便，请多多谅解
+						<br> 4、平台禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用
+						<br> 5、如果提现金额没有及时到账，请联系客服
+						<br>
+
+					</p>
+				</div>
+
+			</div>
+			<!--<div class="chong">
+                <div class="con">
+                   
+                </div>
+                <div>提现说明：
+                    <P style="margin: 8px 0 0 0">1、当天15:00前提现，当天到账；当天15:00之后提现，到账为第二天23:59之前（双休日法定假日除外）</P>
+                    <p>2、提现金额不少于2元（提现金额少于100元收取2元手续费）</p>
+                </div>
+                <div class="con1" style="margin-top: 25px">
+                    <div class="tt">温馨提示</div>
+                    1、请确保您输入的提现金额，以及银行账号信息准确无误<br>
+                    2、如果您填写的提现信息不正确可能会导致提现失败，由此产生的提现费用将不予返还<br>
+                    3、如若在双休日和法定节假日期间，用户申请提现，平台会在下一个工作日进行处理。由此造成的不便，请多多谅解<br>
+                    4、平台禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用<br>
+                    5、如果提现金额没有及时到账，请联系客服：4000-894-855.<br>
+                </div>
+            </div>-->
+		</div>
+		<!--fr end-->
+		<div class="clear"></div>
+	</div>
+	<!--尾部-->
+	<div ng-include="'templates/layout/bottom.html'"></div>
+	<!--尾部结束-->
+</div>

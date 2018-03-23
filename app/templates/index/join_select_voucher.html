@@ -1,0 +1,147 @@
+<style>
+    /*券公共*/
+    .voucher {
+        width: 180px;
+        height: 120px;
+        margin: 10px;
+        float: left;
+        font-family: "microsoft yahei", "微软雅黑", serif;
+    }
+
+    .voucher .value {
+        color: #ffffff;
+        font-weight: bolder;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .voucher .name {
+        color: #ffffff;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .voucher .time {
+        color: #ffffff;
+        font-size: 8px;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+<link rel="stylesheet" href="resource/css/style.css">
+<md-dialog aria-label="使用券" ng-cloak ng-controller="JoinCtrl">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>选择您要使用的券 - 同类型只能用一张</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="resource/images/icons/ic_close_24px.svg" aria-label="Close dialog">
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <span ng-show="lengthA==0">
+                <h4>&nbsp;&nbsp;&nbsp;没有可以使用的优惠卷！</h4>
+            </span>
+            <div class="ul-center" id="abc">
+                    <span ng-repeat="voucher in vouchers.pocket_money" ng-click="selectVoucher(voucher.id)">
+                               <a class="icon-2" id="voucher{{voucher.id}}" name="{{voucher.id}}">
+                                   <h3>￥&nbsp{{voucher.voucherValue | PointToYuan}}<span style="font-size: 12px"
+                                                                                         ng-if="voucher.restricta==1">(限一月标)</span><span
+                                           style="font-size: 12px" ng-if="voucher.restricta==3">(限三月标)</span>
+                                   </h3>
+                                   <p ng-show="voucher.voucherCondition/100!=0" class="t1">现金红包券&nbsp;满{{voucher.voucherCondition
+                                       | PointToYuan}}可用</p>
+                                   <p ng-show="x.voucherCondition/100==0" class="t1">无限制</p>
+                                   <p class="t2" style="font-size: 8px!important;color: #fff">{{ voucher.beginTime |
+                                       date:'yyyy-MM-dd' }}至{{ voucher.expiredTime | date:'yyyy-MM-dd' }}</p>
+                               </a>
+                    </span>
+                <span ng-repeat="voucher in vouchers.exp_money" ng-click="selectVoucher(voucher.id)">
+                      <a class="icon-1" id="voucher{{voucher.id}}" name="{{voucher.id}}">
+                          <h3>￥&nbsp{{voucher.voucherValue | PointToYuan}}</h3>
+                          <p class="t1">体验券</p>
+                          <p class="t2" style="font-size: 8px!important;">{{ voucher.beginTime | date:'yyyy-MM-dd' }}至{{ voucher.expiredTime | date:'yyyy-MM-dd' }}</p>
+                      </a>
+                    </span>
+                <span ng-repeat="voucher in vouchers.raising_rates" ng-click="selectVoucher(voucher.id)">
+                      <a class="icon-0" id="voucher{{voucher.id}}" name="{{voucher.id}}">
+                          <h3>{{voucher.voucherValue | PointToYuan}}&nbsp%</h3>
+                          <p class="t1">利息卷</p>
+                          <p class="t2" style="font-size: 8px!important;">{{ voucher.beginTime | date:'yyyy-MM-dd' }}至{{ voucher.expiredTime | date:'yyyy-MM-dd' }}</p>
+                      </a>
+                </span>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <!--<md-button id="selectfiles">-->
+            <!--选择文件-->
+            <!--</md-button>-->
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                取消
+            </md-button>
+            <md-button class="md-accent md-warn" ng-click="postInvestment()" style="margin-right:20px;" md-autofocus>
+                确认投资
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+<span ng-show="1==2" ng-model="vouchersId"></span>
+<script>
+    $(function () {
+        $("#abc").on("click", "a", function () {
+            var p = $(this).attr("class");
+            if (p == 'icon-0') {
+                if ($(".icon-10").attr("class") == null) {
+                    $(this).removeClass();
+                    $(this).addClass("icon-10");
+                } else {
+                    $(".icon-10").addClass("icon-0");
+                    $(".icon-10").removeClass("icon-10");
+                    $(this).removeClass();
+                    $(this).addClass("icon-10");
+                }
+            }
+            if (p == 'icon-1') {
+                if ($(".icon-11").attr("class") == null) {
+                    $(this).removeClass();
+                    $(this).addClass("icon-11");
+                } else {
+                    $(".icon-11").addClass("icon-1");
+                    $(".icon-11").removeClass("icon-11");
+                    $(this).removeClass();
+                    $(this).addClass("icon-11");
+                }
+            }
+            if (p == 'icon-2') {
+                if ($(".icon-12").attr("class") == null) {
+                    $(this).removeClass();
+                    $(this).addClass("icon-12");
+                } else {
+                    $(".icon-12").addClass("icon-2");
+                    $(".icon-12").removeClass("icon-12");
+                    $(this).removeClass();
+                    $(this).addClass("icon-12");
+                }
+            }
+            if (p == 'icon-10') {
+                $(this).removeClass();
+                $(this).addClass("icon-0");
+            }
+            if (p == 'icon-11') {
+                $(this).removeClass();
+                $(this).addClass("icon-1");
+            }
+            if (p == 'icon-12') {
+                $(this).removeClass();
+                $(this).addClass("icon-2");
+            }
+        })
+    });
+</script>
+

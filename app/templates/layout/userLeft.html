@@ -1,0 +1,106 @@
+
+<link rel="stylesheet" href="resource/css/userLeft.css" type="text/css">
+
+<style>
+	@charset "UTF-8";[ng:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng:form{display:block;}
+	.leftsidebar_box {
+		margin: auto;
+		width: 199px;
+		position: absolute;
+	}
+	
+	.leftsidebar_box dl {
+		text-align: center;
+		margin-bottom: 0;
+	}
+	
+	.leftsidebar_box dl dd {
+		text-align: center;
+		color: #333;
+	}
+	
+	.leftsidebar_box dt {
+		line-height: 38px;
+		background-color: #f5f5f5;
+		border-right: solid 1px #D2CBCB;
+	}
+	
+	.leftsidebar_box dt img {
+		margin-top: 18px;
+		position: absolute;
+		right: 10px;
+	}
+	
+	.leftsidebar_box dl dd a {
+		text-align: center;
+		line-height: 40px;
+		color: #777;
+		text-decoration: none;
+		display: block;
+	}
+	
+	.leftsidebar_box dl dd .ddhover {
+		box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+		border-left: 4px solid #17B6FF;
+		color: #17B6FF;
+	}
+	
+	.leftsidebar_box dl dd:hover {
+		box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+		border-left: 4px solid #17B6FF;
+	}
+</style>
+<div class="personalNav" ng-controller="LayoutController" ng-cloak>
+	
+	<ul class="personalUl">
+		<li class="accountCenter">
+			账户中心
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==1}">
+			<a href="/user/index">账户首页</a>
+		</li>
+		<li class="investmentIcon">
+			投资管理
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==2}">
+			<a href="/user/InvestmentRecords">投资记录</a>
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==3}">
+			<a href="/user/paymentPlans">回款计划</a>
+		</li>
+		<li class="capitalIcon">
+			资金管理
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==4}">
+			<a href="/user/fundDetails">资金明细</a>
+		</li>
+		<li class="safeIcon">
+			安全中心
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==5}">
+			<a href="/user/userSafeCenter">安全设置</a>
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==6}">
+			<a href="/user/userBankCard">我的银行卡</a>
+		</li>
+		<li class="rewardIcon">
+			奖励管理
+		</li>
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==7}">
+			<a href="/user/redPackage">红包管理</a>
+		</li>
+		<!--<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==8}">
+			<a href="/user/rateCoupon">我的加息劵</a>
+		</li>-->
+		<li class="personaLi" ng-class="{'personaCurrent':personaCurrent==9}">
+			<a href="/user/userInvite">邀请有礼</a>
+		</li>
+	</ul>
+	
+</div>
+<script type="text/javascript">
+	$(".leftsidebar_box dt").css({
+		"border-bottom": "solid 1px #D2CBCB"
+	});
+	$(".leftsidebar_box dt img").attr("src", "resource/images/select_xl.png");
+</script>

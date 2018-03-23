@@ -1,0 +1,240 @@
+<link rel="stylesheet" href="resource/css/userBankCard.css">
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<style>
+		* {
+			font-family: '微软雅黑';
+		}
+		
+		body {
+			background-color: #e3e3e3;
+		}
+		
+		dl,
+		dt,
+		dd {
+			display: block;
+			margin: 0;
+		}
+		
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+	</style>
+	<div class="center-container" style="background-color: #ffffff;" >
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+
+		<div class="userBankBg">
+			<div class="userBankTitle">
+				<h3>银行卡区</h3>
+			</div>
+			<!--<h3><span>上次登录：{{ UserInfo.lastLoginTime | newDate:"yyyy-MM-dd HH:mm:ss" }}</span>我的银行卡</h3>-->
+
+			<div class="userBankCon">
+				<!--没绑定银行卡显示页面-->
+				<div ng-show="bankIndex==1">
+					<div class="userBankDiv">
+						<div class="userBank">
+							<div class="bankBtn" ng-click="bankBtn()">
+
+							</div>
+						</div>
+						<div class="userBankRule">
+							<h2>温馨提示：</h2>
+							<p>
+							审核本人与身份证上的照片是否一致，原银行卡和新银行卡是否和持卡人提供的资料一致，严格按如下换卡流程执行：
+							<br> 1.提供身份证正反面、新银行卡照片；
+							<br> 2.提供本人与身份证、新银行卡的合照；
+							<br> 3.若是因原银行卡丢失换卡，需提供原银行卡的挂失证明和新卡的开户证明；
+							<br>4.若是因不支持代扣或其他情况换卡，需提供原银行卡照片、原银行卡的交易流水。
+
+						</p>
+						</div>
+					</div>
+
+				</div>
+				<!--绑定银行卡页面-->
+				<!--<div class="submitBank" ng-show="bankIndex==2">
+					<ul>
+						<form name="form1" id="form1" method="post" action="?myar=5" class="formBank">
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">用户名:</span>
+									<input type="text" class="noControl" disabled="disabled" placeholder="" aria-describedby="basic-addon1" ng-value="user['name']">
+								</div>
+							</li>
+
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">真实姓名:</span>
+									<input type="text" class="noControl" placeholder="" aria-describedby="basic-addon1" disabled="disabled" ng-model="userInfo['realName']">
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">选择银行:</span>
+								
+									<select class="form-control" ng-model="userCard.bankCode">
+										<option value="{{x.id}}" ng-repeat="x in banks">{{x.label}}</option>
+
+									</select>
+								</div>
+							</li>
+							<li>
+							
+									<div  class="form-horizontal">
+										<div class="input-group">
+											<span class="inputGroupAddon">请选择省:</span>
+											
+												<select class="form-control" ng-model="userCard.province" ng-options="key as key for (key,value) in cityData"></select>
+										</div>
+										<div class="input-group">
+											<span class="inputGroupAddon">请选择市:</span>
+												<select class="form-control" ng-model="userCard.city" ng-options="key as key for (key,value) in cityData[userCard.province]"></select>
+										</div>
+										<div class="input-group">
+											<span class="inputGroupAddon">请选择区县:</span>									
+												<select class="form-control" ng-model="userCard.district" ng-options="key as key for (key,value) in cityData[userCard.province][userCard.city]"></select>
+										</div>
+									</div>
+								
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon">银行卡号:</span>
+									<input type="text" class="form-control" ng-model="userCard['cardNumber']" placeholder="请输入银行卡号">
+								</div>
+							</li>
+							<li>
+								<div class="input-group">
+									<span class="inputGroupAddon" id="basic-addon1">开户支行名:</span>
+									<input type="text" class="form-control" placeholder="请填写开户支行名" ng-model="userCard['subbranch']" autocomplete="off">
+								</div>
+							</li>
+							<li>
+								<div style="width: 280px " class="submitBankBtn" ng-click="updateBankCard(UserInfo,userCard)">提交
+								</div>
+							</li>
+						</form>
+					</ul>
+					<div class="userBankRule">
+						<h2>温馨提示：</h2>
+						<p>
+							审核本人与身份证上的照片是否一致，原银行卡和新银行卡是否和持卡人提供的资料一致，严格按如下换卡流程执行：
+							<br> 1.提供身份证正反面、新银行卡照片；
+							<br> 2.提供本人与身份证、新银行卡的合照；
+							<br> 3.若是因原银行卡丢失换卡，需提供原银行卡的挂失证明和新卡的开户证明；
+							<br>4.若是因不支持代扣或其他情况换卡，需提供原银行卡照片、原银行卡的交易流水。
+
+						</p>
+					</div>
+				</div>-->
+				<!--已绑定银行卡显示页面-->
+				<div ng-show="bankIndex==3">
+					<div class="userBank">
+						<div class="bankBorder">
+							<div class="bankName"><img src="../../resource/images/user/{{bankInfo[0]['bankCode']}}.png"></div>
+							<div class="cardNumber">储蓄卡<span>{{bankInfo[0]['cardNumber']}}</span></div>
+							<div class="cardholder">持卡人 <span>{{userInfo['realName']}}</span></div>
+						</div>
+					</div>
+					<div class="userBankRule">
+						<h2>温馨提示：</h2>
+
+						<p>
+							审核本人与身份证上的照片是否一致，原银行卡和新银行卡是否和持卡人提供的资料一致，严格按如下换卡流程执行：
+							<br> 1.提供身份证正反面、新银行卡照片；
+							<br> 2.提供本人与身份证、新银行卡的合照；
+							<br> 3.若是因原银行卡丢失换卡，需提供原银行卡的挂失证明和新卡的开户证明；
+							<br>4.若是因不支持代扣或其他情况换卡，需提供原银行卡照片、原银行卡的交易流水。
+
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!--<div class="fr">
+            <div class="center4">
+                <div class="center4-c">
+                    <ul>
+                        <form name="form1" id="form1" method="post" action="?myar=5">
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">用&nbsp;&nbsp;&nbsp;户&nbsp;&nbsp;&nbsp;名</span>
+                                    <input type="text" class="form-control" disabled="disabled" placeholder=""
+                                           aria-describedby="basic-addon1" ng-value="user['name']">
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">真&nbsp;实&nbsp;姓&nbsp;名</span>
+                                    <input type="text" class="form-control" placeholder=""
+                                           aria-describedby="basic-addon1"
+                                           disabled="disabled" ng-model="userInfo['realName']">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">银&nbsp;行&nbsp;账&nbsp;号</span>
+                                    <input type="text" class="form-control" ng-model="userCard['cardNumber']">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon">开&nbsp;户&nbsp;银&nbsp;行</span>
+                                    <select class="form-control"
+                                            ng-model="userCard['type']"
+                                            ng-options="bank.label for bank in banks"
+                                            title="">
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">开户支行名</span>
+                                    <input type="text" class="form-control" placeholder="例：南宁科园大道支行"
+                                           aria-describedby="basic-addon1" ng-model="userCard['subbranch']">
+                                </div>
+                            </li>
+
+                            <li>
+                                <button type="button" style="width: 280px " class="btn btn-primary"
+                                        ng-click="updateBankCard()">保存
+                                </button>
+                            </li>
+                        </form>
+                    </ul>
+                </div>
+                <div class="center4-tip"><span style="color: red;font-weight:bold;">注意：真实姓名请在基本信息填写！</span><br>温馨提示：为确保您的账户资金安全，所绑定的银行卡必须与您的实名认证信息一致，<br>
+                    请绑定借记卡，禁止信用卡套现，否则将不能进行充值和提现操作。
+                </div>
+            </div>
+        </div>-->
+		<!--fr end-->
+		<div class="clear"></div>
+	</div>
+	<!--尾部-->
+	<div ng-include="'templates/layout/bottom.html'"></div>
+	<!--尾部结束-->
+
+</div>
+<script>
+	//	$(function() {
+	//		
+	//		$(".bankBtn").click(
+	//			
+	//			function(){
+	//			$(".userBankDiv").hide();
+	//			$(".submitBank").show();
+	//			}
+	//		)
+	//	})
+</script>

@@ -1,0 +1,354 @@
+<!--头部-->
+<div ng-include="'templates/layout/top.html'"></div>
+<!--头部结束-->
+<!--样式-->
+<style>
+	body {
+		font-family: "Microsoft YaHei", "微软雅黑", helvetica, arial, verdana, tahoma, sans-serif !important;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	a:link {
+		text-decoration: none;
+	}
+	
+	a:hover {
+		text-decoration: none;
+	}
+	
+	a:active {
+		text-decoration: none;
+	}
+	
+	a:visited {
+		text-decoration: none;
+	}
+	
+	input {
+		outline: none;
+	}
+	
+	 :-moz-placeholder {
+		/* Mozilla Firefox 4 to 18 */
+		color: #cecece;
+	}
+	
+	 ::-moz-placeholder {
+		/* Mozilla Firefox 19+ */
+		color: #cecece;
+	}
+	
+	input:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		color: #cecece;
+	}
+	
+	input::-webkit-input-placeholder,
+	textarea::-webkit-input-placeholder {
+		color: #cecece;
+	}
+	
+	.verify-sms {
+		position: absolute;
+		top: -8px;
+		right: 0;
+		width: 130px;
+		height: 50px;
+	}
+	
+	.verify-img p {
+		font-size: 12px;
+		line-height: 12px;
+		text-align: center;
+		color: #3291db;
+	}
+	
+	.check-inner {
+		width: 321px;
+		height: 20px;
+		margin: 0px auto 0px auto;
+		color: #ffffff;
+	}
+	
+	.check-inner input {
+		vertical-align: middle;
+		margin-top: -2px;
+	}
+	
+	.check-inner a {
+		color: #fff;
+	}
+	
+	.check-inner>label {
+		font-weight: normal;
+	}
+	
+	.login-btn-inner {
+		width: 260px;
+		height: 32px;
+		margin: 20px auto;
+	}
+	
+	.login-btn-inner>a {
+		text-shadow: 2px 2px 2px #337AB7;
+		color: #ffffff;
+		line-height: 32px;
+		font-size: 18px;
+		background-color: #3291db;
+		display: block;
+		text-align: center;
+		width: 260px;
+		height: 32px;
+		margin: 10px auto;
+		box-shadow: 1px 1px 1px #CCCCCC;
+	}
+	
+	.popover-content {
+		padding: 2px 10px;
+		font-size: 14px;
+		color: #DD2525;
+	}
+	
+	.loginwarp {
+		width: 100%;
+		background: url("resource/images/login/loginBg.jpg") no-repeat center center;
+		height: 800px;
+		overflow: hidden;
+	}
+	
+	.loginBg {
+		width: 1200px;
+		margin: 0px auto;
+	}
+	
+	.login {
+		margin-top: 90px;
+		width: 401px;
+		height: 605px;
+		background: url("resource/images/login/register.png") no-repeat;
+		float: right;
+	}
+	
+	.login h2 {
+		font-size: 26px;
+		margin-top: 50px;
+		margin-bottom: 30px;
+		color: #fff;
+		text-align: center;
+	}
+	
+	.inputGroup {
+		width: 321px;
+		margin: 0px auto;
+		margin-bottom: 20px;
+	}
+	
+	.inputName input,
+	.inputPassword input {
+		height: 48px;
+		border: 0px;
+		width: 100%;
+		font-size: 16px;
+		color: #999;
+		background:transparent;
+		line-height: 48px;
+	}
+	
+	.inputName {
+		width: 321px;
+		height: 48px;
+		background: url("resource/images/login/inputName.png") no-repeat;
+		padding-left: 58px;
+	}
+	
+	.inputPassword {
+		width: 321px;
+		height: 48px;
+		background: url("resource/images/login/inputPassword.png") no-repeat;
+		padding-left: 58px;
+	}
+	
+	.verifyCode {
+		position: relative;
+	}
+	
+	.verifyCode input {
+		border-radius: 5px;
+		width: 191px;
+		height: 48px;
+		border: 0px;
+		font-size: 16px;
+		color: #999;
+		padding-left: 10px;
+	}
+	
+	.phoneCodeBg {
+		position: relative;
+	}
+	
+	.phoneCode {
+		width: 191px;
+		height: 48px;
+		background: url("resource/images/login/phoneCode.png") no-repeat;
+		padding-left: 58px;
+	}
+	
+	.phoneCode input {
+		background:transparent;
+		height: 48px;
+		border: 0px;
+		line-height: 48px;
+		font-size: 16px;
+		color: #999;
+	}
+	
+	.verifySms {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 110px;
+		height: 48px;
+		line-height: 48px;
+		text-align: center;
+		background: #2c71bc;
+		border-radius: 5px;
+		font-size: 18px;
+		color: #fff;
+	}
+	
+	.verifySms a {
+		width: 110px;
+		height: 48px;
+		line-height: 48px;
+		text-align: center;
+		display: inline-block;
+		color: #fff;
+		cursor: pointer;
+	}
+	
+	.verifyImg {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 110px;
+		height: 48px;
+		background: #fff;
+	}
+	
+	.verifyImg img {
+		width: 110px;
+		height: 48px;
+		display: inline-block;
+	}
+	
+	.loginBtn {
+		width: 321px;
+		text-align: center;
+		margin: 0px auto;
+		padding-top: 24px;
+		padding-bottom: 15px;
+	}
+	
+	.loginBtn a {
+		background: #2c71bc;
+		border-radius: 5px;
+		width: 321px;
+		height: 48px;
+		line-height: 48px;
+		text-align: center;
+		font-size: 20px;
+		color: #fff;
+		display: inline-block;
+	}
+	
+	input:-webkit-autofill,
+	textarea:-webkit-autofill,
+	select:-webkit-autofill {
+		-webkit-text-fill-color: #ededed !important;
+		-webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+		background-color: transparent;
+		background-image: none;
+		transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间  
+	}
+</style>
+<div class="loginwarp">
+	<div class="loginBg">
+		<div class="login">
+			<h2>欢迎注册</h2>
+			<div style="display: block;" class="login-inner-tab">
+				<div class="inputGroup">
+
+					<div class="inputName" data-rel="r_phone" data-container="body" data-toggle="popover" data-content="手机号码不能为空">
+						<input type="text" name="phone" value="" style="display:none;" autocomplete="off" />
+						<input ng-model="registerInfo.userInfo.phone" type="text" placeholder="请输入注册手机号码" autocomplete="new-password" name="phone">
+					</div>
+				</div>
+				<div class="inputGroup">
+					<div class="verifyCode" data-rel="l_verifyCode" data-container="body" data-toggle="popover" data-content="图片验证码不能为空">
+						<input type="text" name="l_verifyCode" value="" style="display:none;" autocomplete="off" />
+						<input name="l_verifyCode" type="text" ng-model="imgCode" placeholder="请输入图片验证码" autocomplete="new-password">
+						<div class="verifyImg">
+							<img id="verificationCode" src="" ng-click="changeVerificationCode()">
+						</div>
+					</div>
+				</div>
+				<div class="inputGroup ">
+					<div class="phoneCodeBg" data-rel="r_verifyCode" data-container="body" data-toggle="popover" data-content="验证码不能为空">
+					<input type="text" style="display: none;" name="code"/>
+						<div class="phoneCode"><input ng-model="registerInfo.code" type="text" name="code"   placeholder="请输入验证码"></div>
+
+						<div class="verifySms">
+							<a ng-click="sendSms()">获取</a>
+						</div>
+					</div>
+				</div>
+				<div class="inputGroup " style="display: none;">
+					<div class="phoneCodeBg" data-rel="r_verifyCode" data-container="body" data-toggle="popover" data-content="验证码不能为空">
+					<input type="text" style="display: none;" name="code"/>
+						<div class="phoneCode"><input  type="text" name="code"   placeholder="请输入验证码"></div>
+
+						<div class="verifySms">
+							<a ng-click="sendSms()">获取</a>
+						</div>
+					</div>
+				</div>
+				<div class="inputGroup">
+					<div class="inputPassword" data-rel="l_password" data-container="body" data-toggle="popover" data-content="密码不能为空">
+						<input type="password" name="password" value="" style="display:none;" autocomplete="off" />
+						<input ng-model="registerInfo.user.password" type="password" required="" placeholder="输入6～20位登录密码" autocomplete="new-password" name="password">
+					</div>
+				</div>
+
+				<div class="inputGroup">
+					<div class="inputPassword" data-rel="r_recommendId" data-container="body" data-toggle="popover" data-content="">
+						<input type="password" name="" value="" style="display:none;" autocomplete="off" />
+						<input ng-model="registerInfo.userInfo.recommendCode" type="text" placeholder="输入邀请人手机号（可不填）">
+					</div>
+				</div>
+				<div class="check-inner" style="display: block;">
+					<label data-rel="r_checkRead" data-container="body" data-toggle="popover" data-content="您必须同意注册协议"><input checked="checked" name="checkRead" type="checkbox">&nbsp;&nbsp;已阅读并同意<a
+                        href="../../registration.pdf" target="_blank">《注册协议》</a></label>
+				</div>
+				<div class="loginBtn">
+					<a style="cursor: pointer;" ng-click="register()">立 即 注 册</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--尾部-->
+<div>
+	<div ng-include="'templates/layout/bottom.html'"></div>
+</div>
+<!--尾部结束-->

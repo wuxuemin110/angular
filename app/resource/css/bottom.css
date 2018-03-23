@@ -1,0 +1,52 @@
+body{
+    font-family: "Microsoft YaHei", "微软雅黑", helvetica, arial, verdana, tahoma, sans-serif !important;
+}
+a{
+    text-decoration: none !important;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.bottom-erweima {
+    width: 150px;
+    float: left;
+    margin: auto;
+    text-align: center;
+}
+
+.bottom-erweima p {
+    font-size: 14px;
+    text-align: center;
+    color: #b5b7b9;
+    padding-top: 5px;
+}
+.bottom_youqing {
+    overflow: hidden;
+}
+
+.bottom_youqing .mar_2 {
+    width: 123px;
+    float: left;
+
+}
+.panel-body-ba a {
+    font-size: 14px;
+    color: #4f5357 !important;
+    margin-left: 10px;
+    line-height: 24px;
+}
+.bottom-tp {
+    margin-left: 12%;
+}
+@media screen and (max-width: 1200px) {
+    .bottom-tp {
+        margin-left: 6%;
+    }
+}
+.panel-body-ba{
+    background-color: #141d26;
+}
+.panel{
+    border: 0;
+}

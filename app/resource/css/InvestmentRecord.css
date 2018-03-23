@@ -1,0 +1,302 @@
+.tradeRecordsTop{
+	margin: 0px 0 0px 0;
+	border-top:1px solid #FE4C58;
+}
+.tradeRecordsTop table{
+	/*border-top:1px solid #FE4C58;*/
+}
+.tradeRecordsTop th{
+	background: #FFFFFF;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	border-bottom: 1px solid #F5F5F5;
+	border-left: 1px solid #F5F5F5;
+	font-size: 14px;
+	color: #333;
+	font-weight: bold;
+}
+
+.tradeRecordsTop td{
+	background: #FCFCFC;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #333;
+	font-size: 14px;
+	border-left: 1px solid #F5F5F5;
+}
+
+.recordQuer{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.serch_new {
+    border: 1px solid #EBEBEB;
+    text-indent: 4px;
+    height: 30px;
+    padding: 3px 0px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    width: 200px;
+    color: #9E9E9E;
+    margin-right: 20px;
+    }
+
+.search_buttun{
+	width: 86px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	background: #ff0000;
+	display: inline-block;
+	color: #fff;
+	border: 0;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.search_buttun:hover, .search_buttun:focus{
+	color: #fff;
+}
+.recordData,.fundData{
+	margin: 0px auto;
+	margin-top: 20px;
+	width: 1000px;
+}
+
+.recordData .tableWrap,.fundData .tableWrap{
+	min-height: 450px;
+}
+
+.recordData th,.fundData th{
+	border-top:1px solid #FE4C58;
+	height: 55px;
+	line-height: 55px;
+	background: #FFFFFF;
+	font-size: 14px;
+	color: #666;
+	text-align: center;
+	border-bottom: 2px solid #F5F5F5;
+}
+
+.recordData td{
+	
+	line-height: 35px;
+	font-size: 14px;
+	color: #999;
+	text-align: center;
+	border-bottom: 1px solid #D2D2D2;
+}
+
+.recordData td a{
+	
+	line-height: 35px;
+	font-size: 14px;
+	color: #999;
+	display: inline-block;
+	width: 100%;
+}
+.fundData td{
+	
+	line-height: 45px;
+	font-size: 14px;
+	color: #999;
+	text-align: center;
+	border-bottom: 1px solid #D2D2D2;
+}
+
+.recordQuer label{
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #9E9E9E;
+	margin-bottom: 0px;
+}
+
+.recordQuer select{
+	width: 100px;
+	font-family: "微软雅黑";
+	 border: 1px solid #EBEBEB;
+    text-indent: 4px;
+    height: 30px;
+	line-height: 30px;
+    font-size: 16px;
+    margin:0px 15px;
+    color: #9E9E9E;
+}
+
+.recordQuer option{
+	width:100px;
+	font-family: "微软雅黑";
+    text-indent: 4px;
+    height: 30px;
+    padding: 3px 0px;
+    font-size: 16px;
+    margin:0px 15px;
+    color: #9E9E9E;
+}
+/*最小宽度定义*/
+.min-5 {
+    min-width: 50px !important;
+}
+
+.min-6 {
+    min-width: 60px !important;
+}
+
+.min-7 {
+    min-width: 70px !important;
+}
+
+.min-8 {
+    min-width: 50px !important;
+}
+
+.min-10 {
+    min-width: 100px !important;
+}
+
+.min-11 {
+    min-width: 110px !important;
+}
+
+.min-12 {
+    min-width: 120px !important;
+}
+
+.min-13 {
+    min-width: 130px !important;
+}
+
+.min-14 {
+    min-width: 140px !important;
+}
+
+.min-15 {
+    min-width: 150px !important;
+}
+
+.min-16 {
+    min-width: 160px !important;
+}
+
+.min-17 {
+    min-width: 170px !important;
+}
+
+.min-18 {
+    min-width: 180px !important;
+}
+
+.min-19 {
+    min-width: 190px !important;
+}
+
+.min-20 {
+    min-width: 200px !important;
+}
+
+.min-21 {
+    min-width: 210px !important;
+}
+
+.min-22 {
+    min-width: 220px !important;
+}
+
+.min-23 {
+    min-width: 230px !important;
+}
+
+.min-24 {
+    min-width: 240px !important;
+}
+
+.min-25 {
+    min-width: 250px !important;
+}
+
+/*最大宽度定义*/
+.max-5 {
+    min-width: 50px !important;
+}
+
+.max-6 {
+    min-width: 60px !important;
+}
+
+.max-7 {
+    min-width: 70px !important;
+}
+
+.max-8 {
+    min-width: 50px !important;
+}
+
+.max-10 {
+    min-width: 100px !important;
+}
+
+.max-11 {
+    min-width: 110px !important;
+}
+
+.max-12 {
+    min-width: 120px !important;
+}
+
+.max-13 {
+    min-width: 130px !important;
+}
+
+.max-14 {
+    min-width: 140px !important;
+}
+
+.max-15 {
+    min-width: 150px !important;
+}
+
+.max-16 {
+    min-width: 160px !important;
+}
+
+.max-17 {
+    min-width: 170px !important;
+}
+
+.max-18 {
+    min-width: 180px !important;
+}
+
+.max-19 {
+    min-width: 190px !important;
+}
+
+.max-20 {
+    min-width: 200px !important;
+}
+
+.max-21 {
+    min-width: 210px !important;
+}
+
+.max-22 {
+    min-width: 220px !important;
+}
+
+.max-23 {
+    min-width: 230px !important;
+}
+
+.max-24 {
+    min-width: 240px !important;
+}
+
+.max-25 {
+    min-width: 250px !important;
+}

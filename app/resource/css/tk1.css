@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;
+  padding:0;
+  list-style:none;
+  font-family:'microsoft yahei','songti';
+  }
+
+.bottom_box-keleyi-com .frame2{width:300px;
+       height:200px; 
+	   background:#FFF;
+	   border:#CCCCCC 1px solid;
+	  position:fixed; right:0; bottom:0;
+	   border-radius:10px;
+	   }
+.bottom_box-keleyi-com .frame  ul{height:200px;
+          border-radius:10px;
+		  }
+.bottom_box-keleyi-com .frame2 li{list-style-type:none;
+          margin:0 auto;
+		  }
+.bottom_box-keleyi-com .frame2 .top2{ border-bottom:#CCC 1px solid;
+             width:300px; height:30px; 
+			 display:block;
+			 margin:0 auto;
+			 }
+.bottom_box-keleyi-com .frame2 .top2 span{float:right;
+                 font-size:21px;
+				 font-weight:700; 
+				 color:#A8A8A8;
+				 margin-right:10px;
+				 line-height:30px;
+				 }
+.bottom_box-keleyi-com .frame2 .content2{width:200px;
+                margin:0 auto;
+				color:#1A1A1A;
+			    height:100px;
+				font-size:14px;
+				font-weight:600;
+				}
+.bottom_box-keleyi-com .frame2 button{width:80px;
+              height:30px;
+			  border-radius:5px;
+			  background:#0080C0;
+			  border:0;color:#FFF;
+			  }
+.bottom_box-keleyi-com .frame2 .bottom2{width:80px;
+               margin:0 auto;
+			   
+			   }
+			   
+			   
+.bottom_box-keleyi-com.bottom_box-keleyi-com{ position:fixed; left:0; bottom:0; z-index:1000; width:100%; display:none; background:#202020; }
+* html .bottom_box-keleyi-com{position:absolute; left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0)); top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)))}

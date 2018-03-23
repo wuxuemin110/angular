@@ -1,0 +1,46 @@
+<md-dialog aria-label="上传文件" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>选择文件并上传</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="resource/images/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <form name=theform>
+                    <!--上传文件名字保持本地文件名字-->
+                    <input style="display: none" type="radio" name="myradio" value="local_name" checked=true title=""/>
+                    <!--<input type="radio" name="myradio" value="random_name" title="" checked=true /> 上传文件名字是随机文件名, 后缀保留-->
+                </form>
+                <!--<h4>您所选择的文件列表：</h4>-->
+                <div id="ossfile" style="min-width: 550px;">你的浏览器不支持flash,Silverlight或者HTML5！请换Chrome试试！</div>
+                <div style="display: none" id="container">
+                    <!--<a id="selectfiles" href="javascript:void(0);" class='btn'>选择文件</a>-->
+                    <!--<a id="postfiles" href="javascript:void(0);" class='btn'>开始上传</a>-->
+                </div>
+                <div id="console"></div>
+                <div id="img" style="width: 100px"></div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button id="selectfiles" href="javascript:void(0);" md-autofocus>
+                选择文件
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                取消
+            </md-button>
+            <md-button id="postfiles" href="javascript:void(0);" style="margin-right:20px;">
+                开始上传
+            </md-button>
+        </md-dialog-actions>
+    </form>
+
+    <link rel="stylesheet" type="text/css" href="templates/upload/style.css"/>
+    <script type="text/javascript" src="templates/upload/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+    <script type="text/javascript" src="templates/upload/upload.js"></script>
+</md-dialog>

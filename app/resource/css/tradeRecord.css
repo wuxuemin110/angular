@@ -1,0 +1,78 @@
+.tradeRecordsTop{
+	margin: 58px 0 0px 0;
+}
+.tradeRecordsTop table{
+	border:1px solid #EBEBEB ;
+}
+.tradeRecordsTop th{
+	background: #f9f9f9;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #EBEBEB;
+	font-size: 14px;
+	color: #666;
+}
+
+.tradeRecordsTop td{
+	
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #333;
+	font-size: 16px;
+}
+
+.recordQuer{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.serch_new {
+    border: 1px solid #EBEBEB;
+    text-indent: 4px;
+    height: 30px;
+    padding: 3px 0px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    width: 200px;
+    color: #9E9E9E;
+    margin-right: 20px;
+    }
+
+.search_buttun{
+	width: 86px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	background: #ff0000;
+	color: #fff;
+	border: 0;
+	border-radius: 3px;
+}
+
+.recordData{
+	width: 100%;
+}
+
+.recordData th{
+	border-top:2px solid #DF0707;
+	height: 55px;
+	line-height: 55px;
+	background: #F5F5F5;
+	font-size: 16px;
+	color: #999;
+	text-align: center;
+	border-bottom: 1px solid #D2D2D2;
+}
+
+.recordData td{
+	
+	line-height: 35px;
+	font-size: 14px;
+	color: #999;
+	text-align: center;
+	border-bottom: 1px solid #D2D2D2;
+}

@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="resource/css/page.css">
+<link rel="stylesheet" href="resource/css/InvestmentRecord.css">
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+	<div class="center-container" style="background-color: #ffffff;min-height: 650px;">
+		<div ng-include="'templates/layout/userLeft.html'"></div>
+		<div class="fr" >
+			<div class="tradeRecordsTop">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th>累计投资总额（元）</th>
+						<th>已收本金（元）</th>
+						<th>待收本金（元）</th>
+						<th>待收收益（元）</th>
+						<th>累计收益（元）</th>
+					</tr>
+					<tr >
+						<td>{{totalData.investedMoney | PointToYuan | currency:"":2}}元</td>
+						<td>{{totalData.repayedCorpus | PointToYuan | currency:"":2}}元</td>
+						<td>{{totalData.repayingCorpus | PointToYuan | currency:"":2}}元</td>
+						<td style="color: #ff0000;">{{totalData.repayingInterest | PointToYuan | currency:"":2}}元</td>
+						<td style="color: #ff0000;">{{totalData.repayedInterest | PointToYuan | currency:"":2}}元</td>
+					</tr>
+				</table>
+			</div>
+			<!--<div class="recordQuer">
+				<div class="input-group quer" style="float: left;">
+					<label>产品状态</label>
+					<select ng-model="riskData.status">
+
+						<option value="1">等待回款</option>
+						<option value="2">已回款</option>
+
+					</select>
+				</div>
+				<div class="input-group quer" style="float: left;">
+					<input type="date" placeholder="yyyy-MM-dd" class="serch_new" ng-model="riskData.startDate" />
+				</div>
+				<div class="input-group quer" style="float: left;">
+					<input type="date" placeholder="yyyy-MM-dd" class="serch_new" ng-model="riskData.endDate" />
+				</div>
+				<div class="input-group quer" style="float: left;">
+					<a class="search_buttun" ng-click="selectPage(1)">
+						查询
+					</a>
+				</div>
+			</div>-->
+			<div class="recordData">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th width="10%" style="border-left:1px solid #FE4C58;">日期</th>
+						<th width="16%">项目名称</th>
+						<th width="10%">年化利率</th>
+						<th width="10%">期限</th>
+						<th width="14%">投资金额（元）</th>
+						<th width="11%">抵扣红包（元）</th>
+						<th width="11%">加息利率（%）</th>
+						<th width="10%" style="border-right:1px solid #FE4C58;">状态</th>
+						<!--<th width="8%">借款协议</th>-->
+					</tr>
+					<tr ng-repeat="recordData in itemList">
+						<td>{{recordData.createdTime | newDate:'yyyy-MM-dd'}}</td>
+						<td>{{recordData.name}}</td>
+						<td>{{recordData.rate/10}}%</td>
+						<td ng-show="recordData.stagingUnit=='day'">{{recordData.staging}}天</td>
+						<td ng-show="recordData.stagingUnit=='month'">{{recordData.staging}}月</td>
+						<td>{{recordData.money | PointToYuan | currency:"":2}}（元）</td>
+						<td>{{recordData.pocketMoney | PointToYuan }}（元）</td>
+						<td>{{recordData.raisingRates/10}}%</td>
+						<td ng-show="recordData.status==1">等待回款</td>
+						<td ng-show="recordData.status==2">已回款</td>
+					<!--	<td><a href="#" ng-click="downloadProtocol(recordData.id)">点击下载</a></td>-->
+					</tr>
+					<!--
+					<tr>
+						<td>2017-9-27 23:43:31</td>
+						<td>一秒来财</td>
+						<td>12.00%</td>
+						<td>一个月</td>
+						<td>2090.00</td>
+						<td>10.00</td>
+						<td>0</td>
+						<td>成功</td>
+					</tr>-->
+				</table>
+			</div>
+			
+			<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages>1">
+
+				<nav>
+
+					<ul id="pagination" class="pagination pagination-sm" style="">
+
+						<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+						<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+						<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+							<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+						</li>
+
+						<li ng-show="isShowDot">
+							<a ng-click="selectPage(nowPage+6)">……</a>
+						</li>
+
+						<li id="Next">
+							<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+						</li>
+
+						<li id="lastPage">
+							<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</div>
+		</div>
+		<!--fr end-->
+	</div>
+	<!--尾部-->
+	<div>
+		<div ng-include="'templates/layout/bottom.html'"></div>
+	</div>
+	<!--尾部结束-->
+</div>

@@ -1,0 +1,59 @@
+/* CSS Document */
+body,ul,li,p,div{ margin:0; padding:0; font-size:12px;  font-family:"微软雅黑";}
+img{ border:0;}
+a{ font-size:14px; text-decoration:none; color:#FFF; font-family:"微软雅黑";}
+a:hover{ font-size:14px; text-decoration:underline; color:#09c;}
+ul,li{ list-style-type:disc; font-family:"微软雅黑";}
+h1, h2, h3, h4, h5, h6 { font-size:1em;}
+
+.main{ width:100%; height:auto; margin:0 auto; overflow:hidden; min-width:1042px;}
+
+.top{ width:100%;  margin:0 auto; overflow:hidden; min-width:1042px;}
+.top .top_line{ width:100%; height:6px; margin:0 auto; background:#09c; display:block;}
+.top .top_ad{ width:100%; height:39px; margin:0 auto; border-bottom:1px solid #ccc; display:block;}
+.top .top_ad .ad_text{ width:1042px; height:100%; margin:0 auto;}
+.top .top_ad .ad_text .ad_left{ width:300px; height:39px; line-height:39px; font-size:14px; float:left;}
+.top .top_ad .ad_text .ad_right{ height:39px; line-height:39px; float:right;}
+.top .top_ad .ad_text .ad_right .ad_tel_img{ width:35px; height:39px; float:left; margin-left:40px;}
+.top .top_ad .ad_text .ad_right .ad_tel_num{ width:110px; height:39px; float:left; font-size:14px; padding-left:5px;}
+.top .top_ad .ad_text .ad_right .top_login{ width:97px; height:39px; line-height:39px; float:left; background:#eee; border-left:1px solid #ccc;border-right:1px solid #ccc; text-align:center; margin-left:20px;}
+.top .top_ad .ad_text .ad_right .top_res{ width:97px; height:39px; line-height:39px; float:left; background:#eee; border-left:1px solid #ccc;border-right:1px solid #ccc; text-align:center;}
+.top .top_ad .ad_text .ad_right .top_huanying{ width:194px; height:39px; line-height:39px; float:left; background:#eee; text-align:center; margin-left:28px; font-size:14px;}
+.top .top_nav{ width:1042px; height:133px; margin:0 auto; overflow:hidden;}
+.top .top_nav .logo{ width:214px; height:133px; float:left;}
+.top .top_nav .nav{ width:586px; height:133px; float:right;}
+.top .top_nav .navigation{ width:116px; height:133px; line-height:133px; float:left; text-align:center;}
+.top .top_nav .navigation a{ color:#333; font-size: 16px;}
+.top .top_nav .navigation:hover{ background:#09c;}
+.top .top_nav .navigation:hover a{ color:#fff;}
+
+.bottom{ width:100%; height:280px; overflow:hidden; background:#505064;}
+.bottom .bottom_box{ width:1035px; height:280px; overflow:hidden; margin:0 auto;}
+
+.bottom .bottom_box .bottom_left{ width:108px; height:280px; line-height:20px; float:left; text-align:center; color:#fff; font-family:"微软雅黑";}
+.bottom .bottom_box .bottom_left img{ padding-top:38px;}
+
+.bottom .bottom_box .bottom_center{ width:717px; height:280px; float:left; margin-left:53px; margin-right:48px;}
+.bottom .bottom_box .bottom_center .bottom_nav{ width:717px; height:39px;}
+.bottom .bottom_box .bottom_center .bottom_nav div{ width:121px; height:39px; float:left;}
+.bottom .bottom_box .bottom_center .bottom_nav .mar_1{ margin-left:28px;}
+
+.bottom .bottom_box .bottom_center .bottom_copy{ width:717px; height:53px; line-height:60px; color:#fff; text-align:center; font-family:"微软雅黑";}
+
+.bottom .bottom_box .bottom_center .bottom_link{ width:717px; height:30px; color: #CCCCCC;font-size: 13px;}
+.bottom .bottom_box .bottom_center .bottom_link a{color: #CCCCCC;font-size: 13px;}
+
+.bottom .bottom_box .bottom_center .bottom_youqing{ width:1013px; height:44px;}
+.bottom .bottom_box .bottom_center .bottom_youqing div{ width:123px; height:44px; float:left;}
+.bottom .bottom_box .bottom_center .bottom_youqing .mar_2{ margin-left:24px;}
+/*登录弹出窗*/
+.zz{ width:100%; height:100%; background:#000; position:fixed; top:0; left:0; z-index:9; filter:alpha(opacity=30); -moz-opacity:0.30; opacity:0.30; display:none;}
+.tanchu_1{ width:504px; height:266px; position:fixed; z-index:99; margin:auto; top:205px; left:0; right:0; background:url(../images/tanchu_1.png) no-repeat; overflow:hidden; display:none;}
+.tanchu_1 #close_1 img{ margin-left:441px;}
+.tanchu_1 #touzi img{ margin-top:46px; margin-left:32px;}
+.tanchu_1 #jiekuan img{ margin-top:46px; margin-left:48px;}
+
+.tanchu_2{ width:504px; height:266px; position:fixed; z-index:99; margin:auto; top:205px; left:0; right:0; background:url(../images/tanchu_1.png) no-repeat; overflow:hidden; display:none;}
+.tanchu_2 #close_2 img{ margin-left:441px;}
+.tanchu_2 #touzi2 img{ margin-top:46px; margin-left:32px;}
+.tanchu_2 #jiekuan2 img{ margin-top:46px; margin-left:48px;}

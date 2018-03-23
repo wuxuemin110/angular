@@ -1,0 +1,82 @@
+<div ng-include="'templates/layout/top.html'"></div>
+<style type="text/css">
+    body {
+        font-family: "Microsoft YaHei", "微软雅黑" !important;
+        background-color: #FFFFFF;
+    }
+    
+    li a {
+        cursor: pointer;
+    }
+    .container{
+        margin-top: 20px;
+        background: #fff;
+        min-height: 700px;
+        margin-bottom: 30px;
+    }
+    .newContent{
+    	margin: 25px 70px;
+    	font-size: 14px;
+    }
+    
+    .newContent h3{
+    	text-align: center;
+    	font-size: 22px;
+    	color: #5d5d5d;
+    	position: relative;
+    }
+    
+    .newContent .date{
+    	text-align: center;
+    	font-size: 14px;
+    	color: #5d5d5d;
+    	display: inline-block;
+    	width: 100%;
+    	
+    }
+    .newContent h3 .spanTitle{
+    	display: inline-block;
+    	width: 800px;
+    	margin: 0px auto;
+    	line-height: 150%;
+    }
+    .newContent h3 .spanBack{
+    	display: inline-block;
+    	color: #df0707;
+    	font-size: 16px;
+    	position: absolute;
+    	right: 40px;
+    	top: 3px;
+    }
+    .newContent h3 .spanBack a{
+    	
+    	height: 26px;
+    	width: 26px;
+    	display: inline-block;
+    }
+    .newContent h3 .spanBack a img{
+    
+    	height: 26px;
+    	width: 26px;
+    	display: inline-block;
+    }
+</style>
+<!--<script>
+    $(function () {
+        $('#li7').addClass("active-li");
+    })
+
+</script>-->
+<div class="container" style="width: 1200px;overflow:hidden;">
+	<div class="newContent">
+			<h3><span ng-bind-html="Notices.title | DHtml" class="spanTitle"></span><span class="spanBack"><a href="/platformMessage?page=1"><img src="../../resource/images/user/newsClose.png"></a></span></h3><br/>
+			
+		<span class="date">{{Notices.updatedTime | newDate:'yyyy-MM-dd HH:mm:ss'}}</span>
+			<br/>
+			<br/>
+			<div ng-bind-html="Notices.content | DHtml">
+
+			</div>
+	</div>
+</div>
+<div ng-include="'templates/layout/bottom.html'"></div>

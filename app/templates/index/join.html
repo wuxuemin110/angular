@@ -1,0 +1,530 @@
+<!--头部-->
+<link rel="stylesheet" href="resource/css/licai.css">
+<link rel="stylesheet" href="resource/css/page.css">
+<div ng-include="'templates/layout/top.html'"></div>
+<script src="resource/js/carousel.min.js"></script>
+
+<!--头部结束-->
+<!--nav start-->
+<style>
+	.left-page-btn {
+		margin-left: 25%;
+		border-radius: 6px;
+	}
+	
+	.right-page-btn {
+		margin-right: 25%;
+		border-radius: 6px;
+	}
+	
+	.overhiden {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 20em;
+	}
+	
+	.v {
+		padding-left: 50px;
+	}
+	
+	.v span {
+		display: inline-block;
+		float: left;
+		width: 130px;
+		margin-left: 48px;
+		text-align: center;
+		padding: 4px 0;
+	}
+	
+	.img_bottom {
+		float: left;
+		width: 100%;
+		background: #000;
+		opacity: 0.6;
+		text-align: center;
+		position: relative;
+		top: -30px;
+		color: #fff;
+		padding: 2px 0;
+	}
+	
+	.i {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.animate-positive {
+		animation: animate-positive 2s;
+		transition: width 1s linear 0s;
+		-webkit-transition: width .6s ease;
+		transition: width 0.6s ease;
+	}
+	
+	@-webkit-keyframes animate-positive {
+		0% {
+			width: 0%;
+		}
+	}
+	
+	@keyframes animate-positive {
+		0% {
+			width: 0%;
+		}
+	}
+</style>
+<style>
+	body {
+		font-family: "Microsoft YaHei", "微软雅黑", helvetica, arial, verdana, tahoma, sans-serif !important;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	* {
+		padding: 0;
+		margin: 0;
+	}
+</style>
+
+<!--nav end-->
+<div ng-cloak>
+	<!--nav end-->
+	<div class="main-container-wrap">
+		<div class="cyrs-container">
+			<!---position start-->
+			<div class="position"></div>
+			<!--position end-->
+			<!---cyrs-con1 start-->
+			<div class="cyrs-con1">
+				<!--fl start-->
+				<div class="fl">
+					<div class="tit"><span class="joinName">{{plan.name}}</span></div>
+					<span class="joinRate" title="" >加息</span><span class="joinRate" title="" ng-show="plan.labelType==2">返现</span>
+					<div class="con">
+						<div class="c">
+							<span>
+                        <div class="t" style="color: #fe4c58; font-size: 34px;">{{plan.rate/10}}<label style="font-size: 24px;"><font ng-show="plan.labelType==1">+{{plan.rasingRate/10}}</font>%</label></div>
+                        <div class="cc">预期年化</div>
+                     </span>
+							<span>
+                             <div ng-show="plan.stagingUnit=='day'" class="t" >{{plan.staging}}<label>天</label></div>
+                             <div ng-show="plan.stagingUnit=='month'" class="t" >{{plan.staging}}<label>个月</label></div>
+                        <div class="cc">项目周期</div>
+                    </span>
+							<span>
+                        <div class="t" >{{plan.amount | PointToYuan | currency:"":0}}<label>元</label></div>
+                        <div class="cc">项目金额</div>
+                    </span>
+							<div class="clear"></div>
+						</div>
+						<div class="c1">
+							<span style="text-align: left; width: 30%;" ng-show="plan.type==0"><font
+                                style="padding-left: 10px;" >产品类型：</font>投标宝</span>
+							<span style="text-align: left; width: 30%;" ng-show="plan.type==1"><font
+                                style="padding-left: 10px;">产品类型：</font>新手标</span>
+							<span style="text-align: left; width: 30%;" ng-show="plan.type==2"><font
+                                style="padding-left: 10px;">产品类型：</font>垫资宝</span>
+							<span style="text-align: left;width: 33%;"><font
+                                style="padding-left: 10px;">最高限额：</font>{{plan.maxAmount | PointToYuan | currency:"":0}}元</span>
+							<span style="text-align: left;width: 37%;"><font
+                                style="padding-left: 10px;">开始时间：</font>{{plan.purchaseTime | newDate:"yyyy-MM-dd HH:mm:ss"}}</span>
+							<span style="text-align: left; width: 30%;"><font
+                                style="padding-left: 10px;">计息方式：</font>即投计息</span>
+							<span style="text-align: left;width: 33%;"><font
+                                style="padding-left: 10px;">还款方式：</font>一次性还本付息</span>
+							<span style="text-align: left;width: 37%;padding-left: 10px;">
+                               <div class="joinPercent">{{((plan['nowSum'] / plan['amount']) * 100)>100 ? 100:(plan['nowSum'] / plan['amount']*100) | parseInt}}%</div>
+							 </span>
+						</div>
+					</div>
+					<div class="joinProgressBg">
+					<div class="joinProgress animate-positive wow" ng-style="joinPlan">
+					</div>
+					</div>
+				</div>
+				<!--fl end-->
+				<!--fr start-->
+				<div class="fr">
+					<!--<div class="tit" style="background-color: #36abde;">投资金额</div>-->
+
+					<div ng-show="rightShow==1" class="con" style="margin-top: 60px;">
+						<div class="c">
+							<div class="c1">您好，请先
+								<a href="/login" style="color: #fe4c58; font-size: 18px;">登录</a>!</div>
+
+							<div class="c1">
+								<span>预期收益：</span>
+								<span ng-show="plan.stagingUnit=='day'" style="text-align:right"><font style="color: #fe4c58;">                          	
+                            	{{((money)*(plan.rate+plan.rasingRate)/3600*plan.staging) | PointToYuan | currency:"":2}}                          
+                            </font>元</span>
+								<span ng-show="plan.stagingUnit=='month'" style="text-align:right"><font style="color: #fe4c58;">                          	
+                            	{{((money)*(plan.rate+plan.rasingRate)/120*plan.staging) | PointToYuan | currency:"":2}}                           
+                           </font>元</span>
+							</div>
+							<div class="c1">
+								<span>投资金额:</span>
+
+							</div>
+							<div class="c2">
+								<span>
+                            <input ng-model="money" id="money"
+                                    name="money"
+                                   type="number"  class="form-control"
+                                   
+                                   placeholder="{{plan.minAmount | PointToYuan}}元起投"
+                                   aria-describedby="basic-addon1">
+                              </span>
+							</div>
+
+						</div>
+						<a style="width: 100%; height: 40px; margin-top:50px;display: block;" href="/login">
+							<button type="button" class="licaiBtn licai-bottom">
+                                    立即投资
+                                </button>
+						</a>
+					</div>
+					<div class="con" ng-show="rightShow==2">
+						<div class="c">
+							<div class="c1">
+								<span>可认购金额：</span>
+								<span><font>{{(plan.amount-plan.nowSum)<0?0:(plan.amount-plan.nowSum) | PointToYuan | currency:"":0}}</font> 元</span>
+							</div>
+							<!--<div class="c1">
+                            <span>起投金额：</span>
+                            <span>{{plan.minAmount | PointToYuan | currency:"":0}} 元</span>
+                        </div>-->
+
+							<div class="c1">
+								<span>可用余额：</span>
+								<span><font>{{UserInfo.money/100}}</font> 元</span>
+							</div>
+							<div class="c1">
+								<span>预期收益：</span>
+								<span ng-show="plan.stagingUnit=='day'" style="text-align:right"><font style="color: #fe4c58;">                          	
+                            	{{((money)*(plan.rate+plan.rasingRate)/3600*plan.staging) | PointToYuan | currency:"":2}}                          
+                            </font>元</span>
+								<span ng-show="plan.stagingUnit=='month'" style="text-align:right"><font style="color: #fe4c58;">                          	
+                            	{{((money)*(plan.rate+plan.rasingRate)/120*plan.staging) | PointToYuan | currency:"":2}}                           
+                            </font>元</span>
+
+							</div>
+							<!--<div class="joinExpected2">
+								<span ng-show="plan.stagingUnit=='day'" style="text-align:right"><font>                          	
+                            	{{((money)*(plan.rate+plan.rasingRate)/3600*plan.staging) | PointToYuan | currency:"":2}}                          
+                            </font>元</span>
+								<span ng-show="plan.stagingUnit=='month'" style="text-align:right"><font>                          	
+                            	{{((money)*(plan.rate+plan.rasingRate)/120*plan.staging) | PointToYuan | currency:"":2}}                           
+                            </font>元</span>
+							</div>-->
+							<div class="c1" >
+								<span>投资金额:</span>
+
+							</div>
+							<div class="c1" style="padding-bottom: 8px;">
+								<span style="width: 60%;">
+                            <form class="layui-form" style="display:none"> 
+  <input type="text" />
+  <input type="password" /> 
+</form> 
+                            <input type="number" style="width:0;height:0;float:left;visibility:hidden"/ />
+                             <input type="text" style="width:0;height:0;float:left;visibility:hidden"/>
+                              <input type="password" style="width:0;height:0;float:left;visibility:hidden"/>
+                             
+                            <input ng-model="money" id="money"
+                                    name="money"
+                                   type="number" class="form-control"  placeholder="{{plan.minAmount | PointToYuan}}元起投"
+                                    ng-blur="change()"  style="margin:5px 0px;"  autocomplete="new-password">
+                            
+                              </span>
+								<span style="width: 38%;"><button  type="button"
+                                        class="allBtn" ng-click="allMoney()">
+                                                                                                            全投
+                                </button></span>
+							</div>
+
+							<div class="c2" style="position: relative;">
+								<!--<img src="../../resource/images/investment/hb_img.png" style="position: absolute;z-index: 9999;margin: 10px 0 0 10px;">-->
+								<select class="redPacket" id="redPacked" ng-model="selectedItem" ng-change="change2()" ng-init="selectedItem='0'">
+									<option value="0">---请选择红包---</option>
+									<option value="{{x.id}}" ng-repeat="x in redVouchers">{{x.voucherValue/100}}元(条件：{{x.voucherCondition/100}}元,{{x.restricta}}天及以上标的)</option>
+
+								</select>
+
+							</div>
+							<div class="c2" style="position: relative;">
+								<!--<img src="../../resource/images/investment/jx_img.png" style="position: absolute;z-index: 9999;margin: 10px 0 0 10px;">-->
+								<select class="redPacket" id="couponId">
+									<option>---请选择加息券---</option>
+								</select>
+
+							</div>
+
+						</div>
+						<div class="btnBg">
+							<a ng-show="plan.state==1">
+								<button type="button" class="btn btn-danger licai-bottom">还款中
+                                </button>
+							</a>
+							<a ng-show="plan.state==2">
+								<button type="button" class="btn btn-info licai-bottom">已还完
+                                </button>
+							</a>
+							<a ng-show="plan.state==0">
+								<button ng-click="beforePostInvestment(plan,selectedItem)" type="button" class="btn licaiBtn licai-bottom">
+                                    立即投资
+                                </button>
+							</a>
+							<a ng-show="plan.state==3">
+								<button type="button" class="btn btn-info licai-bottom">
+                                    等待开放
+                                </button>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!--fr end-->
+			</div>
+
+			<div class="licai_bottom">
+				<div class="licai_box">
+					<div class="box_tit">
+						<div ng-class="{hui:activeTap!=0,lan:activeTap==0}" id='tab_btn_1' ng-click="switchTap(0)">
+							项目详情
+						</div>
+						<div ng-class="{hui:activeTap!=1,lan:activeTap==1}" id='tab_btn_0' ng-click="switchTap(1)">
+							相关资料
+						</div>
+
+						<div ng-class="{hui:activeTap!=2,lan:activeTap==2}" id='tab_btn_2' ng-click="switchTap(2)">投资记录
+						</div>
+
+					</div>
+					<!--项目详情-->
+					<div ng-show="activeTap==0">
+						<table class="tab_table" cellpadding="0" cellspacing="0" align="center">
+							<tr>
+								<td class="tdColor">
+									借款人信息
+								</td>
+								<td ng-bind-html="plan.userInfo | DHtml">
+
+								</td>
+							</tr>
+							<tr>
+								<td class="tdColor">
+									产品说明
+								</td>
+								<td ng-bind-html="plan.description | DHtml">
+
+								</td>
+							</tr>
+
+							<tr>
+								<td class="tdColor">
+									借款详情
+								</td>
+								<td ng-bind-html="plan.used | DHtml">
+
+								</td>
+							</tr>
+							<tr>
+								<td class="tdColor">
+									还款措施
+								</td>
+								<td ng-bind-html="plan.repayInfo | DHtml">
+
+								</td>
+							</tr>
+							<tr>
+								<td class="tdColor">
+									安全保障
+								</td>
+								<td ng-bind-html="plan.risk | DHtml">
+
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+					<!--相关资料-->
+
+					<div ng-show="activeTap==1">
+						<div class="details_banner">
+							<div class="large_box">
+								<ul id="details_banner">
+									<li ng-repeat="bigImage in plan.images"><img ng-src="{{bigImage.url}}" ng-click="shouBigImage(bigImage.url)"></li>
+
+								</ul>
+							</div>
+							<div class="small_box">
+								<span class="btn left_btn"></span>
+								<div class="small_list">
+									<ul>
+										<li ng-repeat="smallImage in plan.images" on-finish-render-filters><img ng-src="{{smallImage.url}}"></li>
+
+									</ul>
+								</div>
+								<span class="btn right_btn"></span>
+							</div>
+						</div>
+
+					</div>
+					<!--投资人数-->
+					<div ng-show="activeTap==2">
+						<div class="tabTableDiv">
+							<table class="tab_table2" cellpadding="0" cellspacing="0" align="center">
+								<tr>
+									<th width="262" align="center" style="border-left: 1px solid #FE4C58;">投资人</th>
+									<th width="262" align="center">投资金额</th>
+									<th width="262" align="center">使用红包</th>
+									<!-- <th width="262"  align="center" >投资渠道</th>-->
+									<th width="262" align="center" style="border-right: 1px solid #FE4C58;">投资时间</th>
+								</tr>
+
+								<tr ng-repeat="investment in itemList">
+
+									<td width="262" height="38" align="center">{{investment.name}}
+									</td>
+									<td width="262" height="38" align="center">
+										<span>{{investment.money | PointToYuan }} 元</span>
+
+									</td>
+									<td width="262" height="38" align="center">
+										{{investment.pocketMoney | PointToYuan }}元
+									</td>
+									<td width="262" height="38" align="center">{{investment.createdTime | newDate:"yyyy-MM-dd"}}
+									</td>
+								</tr>
+
+								<tr class="nav-investors" ng-show="totalPages>0">
+									<td colspan="4">
+										<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" >
+
+											<nav>
+
+												<ul id="pagination" class="pagination pagination-sm" style="">
+
+													<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+													<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+													<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+														<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+													</li>
+
+													<li ng-show="isShowDot">
+														<a ng-click="selectPage(nowPage+6)">……</a>
+													</li>
+
+													<li id="Next">
+														<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+													</li>
+
+													<li id="lastPage">
+														<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+													</li>
+
+												</ul>
+
+											</nav>
+
+										</div>
+									</td>
+								</tr>
+
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- 尾部 -->
+	<div ng-include="'templates/layout/bottom.html'"></div>
+	<!--尾部结束-->
+
+<!--中部结束-->
+
+<div class="confirmBoxBg" ng-if="isShow">
+	<div class="confirmBox">
+		<div class="boxContent">
+			<div class="boxTitle">
+				<img src="../../resource/images/investment/closeImg.png" ng-click="confirmBoxclose()"> 请确认投资金额
+			</div>
+			<div style="width:360px;margin: 0 auto;margin-top: 20px;">
+				<table class="boxTable">
+					<tr>
+						<td align="left">使用账户可用余额：</td>
+						<td align="right"><span>
+		  	   	    		{{money-oneRedVoucher.voucherValue}}<label >元</label></span></td>
+					</tr>
+					<tr>
+						<td align="left">使用账户红包：</td>
+						<td align="right"><span>
+		  	   	    		{{oneRedVoucher.voucherValue}}<label >元</label></span></td>
+					</tr>
+					<tr>
+						<td align="left">使用加息劵：</td>
+						<td align="right"><span>
+		  	   	    		--</span></td>
+					</tr>
+					<tr>
+						<td align="left">合计投资金额：</td>
+						<td align="right"><span>
+		  	   	    		{{(money)}}<label >元</label></span></td>
+					</tr>
+					<tr ng-show="plan.specialPlan==1">
+
+						<td align="left">约标密码：</td>
+						<td align="right"><span>
+							 <form class="layui-form" style="display:none"> 
+  <input type="text" />
+  <input type="password" /> 
+</form> 
+                            <input type="number" style="width:0;height:0;float:left;visibility:hidden"/ />
+                             <input type="text" style="width:0;height:0;float:left;visibility:hidden"/>
+                              <input type="password" style="width:0;height:0;float:left;visibility:hidden"/>
+							 <input type="password" style="display: none;" autocomplete="off" name="password"/>
+		  	   	    		<input ng-model="specialPlanPassword" name="password"  onfocus="this.type=''"  type="password" class="form-control"  autocomplete="new-password" placeholder="请输入约标密码"  ></span></td>
+
+					</tr>
+					<!--<tr>
+		  	   	   	   	  <td align="left" >交易密码：</td>
+		  	   	   	   	 <td align="right"><span>
+		  	   	    		<input ng-model="tradePassword" id="tradePassword"
+                                   type="password"  class="form-control"
+                                   placeholder="请输入交易密码" ></span></td>
+		  	   	   	   </tr>-->
+				</table>
+
+			</div>
+			<div class="boxBtn" ng-click="postInvestment(selectedItem,tradePassword,specialPlanPassword)">
+				确认投资
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--<div id="bigImageBg" >
+	<div  class="closeImg">×</div>
+    <img class="img-responsive" />
+</div>-->
+<div id="bigImageBg">
+	<div class="closeImg">×</div>
+	<div class="bigLeft btn">
+	</div>
+	<ul id="bigBanner">
+		<li ng-repeat="bigImage1 in plan.images"><img ng-src="{{bigImage1.url}}" class="img-responsive"></li>
+	</ul>
+	<div class="bigRight btn">
+	</div>
+</div>
+
+</div>

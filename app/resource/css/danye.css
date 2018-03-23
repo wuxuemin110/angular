@@ -1,0 +1,16 @@
+/* CSS Document */
+.ad_img{ width:1042px; height:166px; margin:0 auto; position:relative;}
+.ad_img .ad_text{ width:222px; height:42px; position:absolute; right:54px; top:72px;}
+.ad_img .ad_text font{ color:#09c; font-size:20px;}
+
+.center{ width:1042px; height:auto; min-height:500px; margin:18px auto; overflow:hidden;}
+.center .center_left{ width:222px; height:auto; overflow:hidden; float:left;}
+.center .center_left .left_tit{ width:222px; height:48px; background:#09c; font-size:18px; text-indent:40px; line-height:48px; color:#fff;}
+.center .center_left .left_tit_1{ width:220px; height:39px; line-height:39px; border:1px solid #ccc; border-top:none; background:url(../images/j_1.png) 21px 19px no-repeat; text-indent:40px;;}
+.center .center_left .left_tit_1 a{ color:#09c; font-size:14px;}
+.center .center_left .left_tit_2{ width:220px; height:39px; line-height:39px; border:1px solid #ccc; border-top:none; background:url(../images/j_2.png) 21px 19px no-repeat; text-indent:40px;}
+.center .center_left .left_tit_12 a{ color:#666; font-size:14px;}
+.center .center_right{ width:790px; height:auto; float:left; margin-left:27px;}
+.center .center_right .right_tit{ width:790px; height:45px; line-height:45px; border-bottom:1px solid #ccc; color:#09c;}
+.center .center_right .right_tit a{ color:#09c;}
+.center .center_right .right_con{ width:790px; height:auto; overflow:hidden;}

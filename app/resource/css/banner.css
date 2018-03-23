@@ -1,0 +1,15 @@
+/* CSS Document */
+.focus{width:1481px;height:503px;position:relative; margin:0 auto;}
+.f426x240{width:1481px;height:503px;overflow:hidden; text-align:center; margin:0 auto;}
+.f426x240 img{width:1481px;height:503px}
+
+.rslides{width:100%;position:relative;list-style:none;padding:0}
+.rslides li{ width:100%;}
+.rslides li a{ width:100%; height:503px; display:block;}
+.rslides_nav{height:60px;width:60px;position:absolute;-webkit-tap-highlight-color:rgba(0,0,0,0);top:50%;left:100px;opacity:0.5;text-indent:-9999px;overflow:hidden;text-decoration:none; margin-top:-28px}
+.rslides_nav:active{opacity:1.0}
+.rslides_nav.next{left:auto;right:100px}
+.rslides_tabs{ position:absolute; bottom:10px; left:45.5%; clear:both;text-align:center}
+.rslides_tabs li{display:inline;float:none;_float:left;*float:left;margin-right:18px}
+.rslides_tabs a{text-indent:-9999px;overflow:hidden;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;background:rgba(0,0,0, .2);background:#fff;display:inline-block;_display:block;*display:block;width:20px;height:20px}
+.rslides_tabs .rslides_here a{background:rgba(0,0,0, .6);background:#09c; width:20px; height:20px;}

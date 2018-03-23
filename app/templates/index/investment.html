@@ -1,0 +1,245 @@
+<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+
+<div ng-cloak>
+	
+
+	<!--<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+	<link rel="stylesheet" href="resource/css/page.css" type="text/css">
+	<style>
+		body {
+			font-family: "Microsoft YaHei", "微软雅黑", helvetica, arial, verdana, tahoma, sans-serif !important;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		.showPsword {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(10, 10, 10, 0.5);
+			z-index: 998;
+			overflow: scroll;
+		}
+		
+		.entryPassword {
+			width: 400px;
+			height: 300px;
+			margin: 0 auto;
+			background: #fff;
+			text-align: center;
+			margin-top: 360px;
+			opacity: 1;
+			z-index: 999;
+			font-size: 28px;
+			padding: 30px 16px;
+		}
+		
+		.showDiv {
+			width: 368px;
+			height: 80px;
+			background-image: url(" ../resource/images/showback.jpg");
+			margin-top: 36px;
+		}
+		
+		.password {
+			margin-top: -60px;
+			margin-left: 35px;
+			letter-spacing: 55px;
+		}
+		
+		.p_input {
+			border: none;
+			background: none;
+			width: 100%;
+			outline: none;
+			letter-spacing: 55px;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.shutdown {
+			float: right;
+			width: 30px;
+			height: 30px;
+			font-size: 12px;
+			margin-top: -60px;
+			color: red;
+		}
+		
+		#text {
+			color: #a3be41;
+			margin-top: 46px;
+			font-size: 20px;
+		}
+		.investmentNowBg{
+			height: 4px;
+    background-color: #FFD3A4;
+    width: 100%;
+    position:absolute;
+    left: 0px;
+    bottom: 0px;
+		}
+		.investmentNow{
+	height: 4px;
+    background-color: #2c71bc;
+		}
+		.investmentNumber{
+			position:absolute;
+    right: 18px;
+    bottom: 20px;
+    color: #2c71bc;
+    font-size: 18px;
+		}
+		.animate-positive {
+			animation: animate-positive 2s;
+			transition: width 1s linear 0s;
+			-webkit-transition: width .6s ease;
+			transition: width 0.6s ease;
+		}
+		
+		@-webkit-keyframes animate-positive {
+			0% {
+				width: 0%;
+			}
+		}
+		
+		@keyframes animate-positive {
+			0% {
+				width: 0%;
+			}
+		}
+	</style>
+	<div class="main-container-wrap">
+		<div class="tzlc-container">
+			<!-- <div class="tzlc-banner"><img src="resource/images/p_1.jpg"></div>-->
+
+		</div>
+		<div class="tzlc-con">
+			<div class="tzlcTop">
+				<ul>
+					<li ng-class="{'activeLi':liIndex==10}">
+						<a href="#" ng-click="[liIndex=10,selectPage(1,10)]">全部</a>
+					</li>
+					<li ng-class="{'activeLi':liIndex==1}">
+						<a href="#" ng-click="[liIndex=1,selectPage(1,1)]">新客专享</a>
+					</li>
+					<li ng-class="{'activeLi':liIndex==0}">
+						<a href="#" ng-click="[liIndex=0,selectPage(1,0)]">投标宝</a>
+					</li>
+					<li ng-class="{'activeLi':liIndex==2}">
+						<a href="#" ng-click="[liIndex=2,selectPage(1,2)]">垫资宝</a>
+					</li>
+				</ul>
+			</div>
+			<div class="fl" style="background: #fff;margin-top: 10px;width: 100%;">
+				<div class="plan" style="overflow: hidden; min-height: 780px; ">
+					<ul>
+						<li class="fl-c1" ng-repeat="plan in bottomPlans">
+							<div class="left2">
+								<div class="leftTitle">
+									<label>{{plan.name}}</label>
+									<!--<span class="firstCast" ng-show="plan.type==1">首投</span>-->
+									<span class="firstCast" ng-show="plan.labelType==2">返现</span>
+									<span class="firstCast" ng-show="plan.labelType==1">加息</span>
+									
+								</div>
+								<div class="c">
+									<span>
+										<font style="color: #e20214; font-size: 34px;">{{plan.rate/10}}</font>
+										<font style="color:#e20214; font-size: 24px;">
+									<font ng-show="plan.labelType==1" style="font-size: 24px;">+{{plan.rasingRate/10}}</font>%</font>
+									<br>
+									<span class="spanName">预期年化</span>
+									</span>
+									<span> <font ng-show="plan.stagingUnit=='day'" style="font-size: 24px;" >{{plan.staging}}<font>天</font></font>
+                                    <font ng-show="plan.stagingUnit=='month'" style=" font-size: 24px;" >{{plan.staging}}<font>个月</font></font><br><span class="spanName">项目周期</span></span>
+									<span><font style="font-size: 24px;">{{plan.amount | PointToYuan  | currency:"":0}}</font><font >元</font><br><span class="spanName">项目金额</span></span>
+
+								</div>
+								<div style="margin-top: 30px;">
+									<a href="/join/{{plan.id}}" class="aWrap">
+										<button ng-show="plan.state==0 && (plan.amount==plan.nowSum || plan.amount < plan.nowSum)" type="button" class=" btn-danger investmentBtn man">已经满标
+                                </button>
+										<button ng-show="plan.state==0 && plan.amount>plan.nowSum" type="button" class="btnYellow investmentBtn">立即投资
+                                </button>
+										<button ng-show="plan.state==1" type="button" class=" btn-warning investmentBtn">还款中
+                                </button>
+										<button ng-show="plan.state==2" type="button" class=" btn-primary investmentBtn man">
+                                   已还完
+                                </button>
+										<button ng-show="plan.state==3" type="button" class=" btn-info investmentBtn">
+                                    等待开放
+                                </button>
+									</a>			
+								</div>
+								       <div class="investmentNowBg">
+										<div class="investmentNow animate-positive wow" ng-style="{'width':'{{((plan['nowSum'] / plan['amount']) * 100)>100 ? 100:(plan['nowSum'] / plan['amount']*100) | parseInt}}%'}">
+										</div>
+										</div>
+										<div class="investmentNumber">
+											{{((plan['nowSum'] / plan['amount']) * 100)>100 ? 100:(plan['nowSum'] / plan['amount']*100) | parseInt}}%
+										</div>
+								
+							</div>
+						</li>
+					</ul>
+
+				</div>
+				<div ng-if="totalPages>1" style="overflow: hidden;margin-top: 25px;">
+					<nav style="text-align: center">
+						<ul id="pagination" class="pagination pagination-sm" style="">
+							<li id="firstPage"><span ng-click="selectPage(1,liIndex)" aria-hidden="true">首页</span></li>
+							<li id="Previous"><span ng-click="selectPage((nowPage-1),liIndex)" aria-hidden="true">«</span></li>
+							<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+								<a ng-click="selectPage(page.showNumber,liIndex)">{{page.showNumber}}</a>
+							</li>
+							<li ng-show="isShowDot">
+								<a ng-click="selectPage((nowPage+6),liIndex)">……</a>
+							</li>
+							<li id="Next">
+								<a ng-click="selectPage((nowPage+1),liIndex)" aria-label="Next"><span aria-hidden="true">»</span></a>
+							</li>
+							<li id="firstPage">
+								<a ng-click="selectPage(totalPages,liIndex)"><span aria-hidden="true">尾页</span></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+			</div>
+			<!--fl end-->
+			<div class="clear"></div>
+		</div>
+		<!--tzlc-con end-->
+	</div>
+
+<!--<div ng-show="showPasword" class="showPsword">
+    <div class="entryPassword">
+        <p>请输入投资密码</p><span class="shutdown" ng-click="hidePasword()">关闭</span>
+        <div class="showDiv"></div>
+        <p class="password"><input class="p_input" type="password" ng-model="specilPassword" maxlength="5"
+                                   ng-change="changePassword()"></p>
+        <p id="text">{{tidText}}</p>
+    </div>
+</div>-->
+<script src="resource/js/index.js"></script>
+<!--<script src="resource/js/investment.js" type="text/javascript"></script>-->
+<!--尾部-->
+<div>
+<div ng-include="'templates/layout/bottom.html'"></div>
+<!--尾部结束-->
+</div>
+</div>

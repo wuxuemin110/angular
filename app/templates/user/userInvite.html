@@ -1,0 +1,168 @@
+<link rel="stylesheet" href="resource/css/page.css">
+<link rel="stylesheet" href="resource/css/redPacket.css">
+<div ng-cloak>
+	<!--头部-->
+	<div ng-include="'templates/layout/top.html'"></div>
+	<!--头部结束-->
+
+	<div class="center-container" style="background-color: #ffffff;min-height: 600px">
+		<!--用户左边导航-->
+		<div>
+			<div ng-include="'templates/layout/userLeft.html'"></div>
+		</div>
+		<div class="redPacketBg">
+		
+			<div class="redPacketCon">
+				
+
+				<ul class="topUl2">
+					<li ng-class="{'currentLi':inviteIndex==1}">
+						<a href="#" ng-click="inviteIndex=1">推广记录</a>
+					</li>
+					<li ng-class="{'currentLi':inviteIndex==2}">
+						<a href="#" ng-click="inviteIndex=2">奖励记录</a>
+					</li>
+				</ul>
+				<!-- 未使用-->
+				<div ng-show="inviteIndex==1">
+					<div class="spreadRecord">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<th style="width: 250px;border-left: 1px solid #FE4C58;" >注册时间</th>
+								<th style="width: 300px;">被邀请人手机号</th>
+								<th style="width: 250px;border-right: 1px solid #FE4C58;" >是否认证</th>
+							</tr>
+							<tr ng-repeat="recommend in itemList">
+								<td>{{recommend.createdTime | newDate:'yyyy-MM-dd'}}</td>
+								<td>{{recommend.phone}}</td>
+								<td ng-show="recommend.verified==1">是</td>
+								<td ng-show="recommend.verified==0">否</td>
+
+							</tr>
+						</table>
+
+					</div>
+					<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages>0">
+
+						<nav>
+
+							<ul id="pagination" class="pagination pagination-sm" style="">
+
+								<li id="firstPage"><span ng-click="selectPage(1)" aria-hidden="true">首页</span></li>
+
+								<li id="Previous"><span ng-click="selectPage(nowPage-1)" aria-hidden="true">«</span></li>
+
+								<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+									<a ng-click="selectPage(page.showNumber)">{{page.showNumber}}</a>
+								</li>
+
+								<li ng-show="isShowDot">
+									<a ng-click="selectPage(nowPage+6)">……</a>
+								</li>
+
+								<li id="Next">
+									<a ng-click="selectPage(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+								</li>
+
+								<li id="lastPage">
+									<a ng-click="selectPage(totalPages)"><span aria-hidden="true">尾页</span></a>
+								</li>
+
+							</ul>
+
+						</nav>
+
+					</div>
+				</div>
+				<!-- 已使用-->
+				<div ng-show="inviteIndex==2">
+					<div class="rewardRecord">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<th style="border-left: 1px solid #FE4C58;">投资时间</th>
+								<th>被邀请人手机号</th>
+								<th>投资金额</th>
+								<th>奖励金额</th>
+								<th style="border-right: 1px solid #FE4C58;">投资周期</th>
+
+							</tr>
+							<tr ng-repeat="reward in itemList1">
+								<td>{{reward.createdTime | newDate:'yyyy-MM-dd'}}</td>
+								<td>{{reward.phone}}</td>
+								<td>{{reward.investMoney | PointToYuan | currency:"":0}}元</td>
+								<td>{{reward.rewardMoney | PointToYuan | currency:"":0}}元</td>
+								<td>{{reward.period}}</td>
+
+							</tr>
+						</table>
+
+					</div>
+					<div style="overflow: hidden;margin-top: 10px; margin: auto; text-align: center;" ng-show="totalPages1>0">
+
+						<nav>
+
+							<ul id="pagination" class="pagination pagination-sm" style="">
+
+								<li id="firstPage"><span ng-click="selectPage1(1)" aria-hidden="true">首页</span></li>
+
+								<li id="Previous"><span ng-click="selectPage1(nowPage-1)" aria-hidden="true">«</span></li>
+
+								<li ng-repeat="page in pages" ng-class="{true:'active'}[page.showNumber==nowPage]">
+
+									<a ng-click="selectPage1(page.showNumber)">{{page.showNumber}}</a>
+								</li>
+
+								<li ng-show="isShowDot">
+									<a ng-click="selectPage1(nowPage+6)">……</a>
+								</li>
+
+								<li id="Next">
+									<a ng-click="selectPage1(nowPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a>
+								</li>
+
+								<li id="lastPage">
+									<a ng-click="selectPage1(totalPages)"><span aria-hidden="true">尾页</span></a>
+								</li>
+
+							</ul>
+
+						</nav>
+
+					</div>
+				</div>
+				<div class="recommendBg">
+				<div class="recommend">
+					<div class="referralLink fLeft">
+						<h4>推荐链接</h4>
+						<p>将您的推荐人专属链接发给您的好友</p>
+						<p><input type="text" id="text1" value="{{recommend.url}}"><span onclick="myCopy('text1')">复制邀请链接</span></p>
+					</div>
+					<div class="referralLink fRight" style="border: 0; width: 360px;">
+						<h4>推荐码</h4>
+						<p>推荐好友注册时，将此号码填入推荐码输入框</p>
+						<p><input type="text" id="text2" value="{{recommend.recommendCode}}"><span onclick="myCopy('text2')">复制推荐码</span></p>
+					</div>
+				</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<script src="resource/js/index.js"></script>
+	<!--尾部-->
+	<div>
+		<div ng-include="'templates/layout/bottom.html'"></div>
+	</div>
+	<!--尾部结束-->
+</div>
+
+<script>
+	function myCopy(a) {
+		var ele = document.getElementById(a);
+		ele.select();
+		document.execCommand("Copy");
+		//alert("复制成功");
+	}
+</script>

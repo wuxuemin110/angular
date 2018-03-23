@@ -1,0 +1,43 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../zheng_files/threebg.jpg); PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #756f6d; PADDING-TOP: 0px; FONT-FAMILY: "ËÎÌå", Arial; TEXT-ALIGN: center
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	LIST-STYLE-TYPE: none
+}
+A {
+	COLOR: #221815; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #32698e
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.box {
+	MARGIN-TOP: 150px
+}
+.boxcon {
+	MARGIN-TOP: 10px; MARGIN-BOTTOM: 10px; OVERFLOW: hidden
+}
+.pictu IMG {
+	WIDTH: 157px; HEIGHT: 213px
+}
+.style01 {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Î¢ÈíÑÅºÚ"
+}
+.style02 {
+	FONT-SIZE: 14px; COLOR: #221815
+}
+.style03 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #221815
+}
+.style04{font-size:12px;FONT-FAMILY: 'ËÎÌå', Arial; }

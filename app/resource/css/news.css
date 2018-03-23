@@ -1,0 +1,30 @@
+/* CSS Document */
+.ad_img{ width:1042px; height:176px; margin:0 auto; position:relative;}
+.ad_img .ad_text{ width:222px; height:42px; position:absolute; left:54px; top:72px; color:#09c;}
+.ad_img .ad_text font{ color:#09c; font-size:18px;}
+
+.center{ width:1042px; height:auto; margin:18px auto; overflow:hidden;}
+.center .center_left{ width:222px; height:auto; overflow:hidden; float:left;}
+.center .center_left .left_tit{ width:222px; height:48px; background:#09c; font-size:18px; text-indent:1em; line-height:48px; color:#fff;}
+.center .center_left .left_tit_1{ width:220px; height:39px; line-height:39px; border:1px solid #ccc; border-top:none; background:url(../images/j_1.png) 21px 19px no-repeat; text-indent:3em;}
+.center .center_left .left_tit_1 a{ color:#09c; font-size:14px;}
+.center .center_left .left_tit_2{ width:220px; height:39px; line-height:39px; border:1px solid #ccc; border-top:none; background:url(../images/j_2.png) 21px 19px no-repeat; text-indent:3em;}
+.center .center_left .left_tit_12 a{ color:#666; font-size:14px;}
+.center .center_right{ width:790px; height:auto; float:left; margin-left:27px;}
+.center .center_right .right_tit{ width:790px; height:45px; line-height:45px; border-bottom:1px solid #ccc; color:#09c;}
+.center .center_right .right_tit a{ color:#09c;}
+.center .center_right .right_lieb{ width:790px; height:auto; overflow:hidden;}
+.center .center_right .right_lieb .lieb_box{ width:765px; height:150px; margin:30px 0;}
+.center .center_right .right_lieb .lieb_box .news_img{ width:210px; height:150px; float:left;}
+.center .center_right .right_lieb .lieb_box .news_right{ width:538px; height:150px; float:left;/* margin-left:17px;*/}
+.center .center_right .right_lieb .lieb_box .news_right .news_tit{ width:538px; height:24px; line-height:24px;}
+.center .center_right .right_lieb .lieb_box .news_right .news_tit a{ color:#333; font-size:18px;}
+.center .center_right .right_lieb .lieb_box .news_right .news_tit a:hover{ color:#09c; font-size:18px;}
+.center .center_right .right_lieb .lieb_box .news_right .news_con{ width:538px; height:71px; line-height:27px; margin:19px 0; font-size:14px;}
+.center .center_right .right_lieb .lieb_box .news_right .news_date .more{ float:right; color:#09c;}
+.center .center_right .right_con{ width:790px; height:auto; overflow:hidden; border-bottom:1px dashed #ccc;}
+.center .center_right .s_x{ width:790px; height:43px; margin:33px 0;}
+.center .center_right .s_x font{ color:#333;}
+.center .center_right .con_tit{ width:790px; height:96px; line-height:20px; text-align:center;}
+.center .center_right .con_tit font{ font-size:18px; color:#09c;}
+.fenye{ width:765px; height:auto; margin:25px auto; text-align:center;}
